@@ -28,9 +28,9 @@ namespace ListOfStudents.Models
             Courseid = courseid;
 
         }
-        public int CourseID { get; set; }
+        public int CourseID { get;  }
         public int ID{ get; set; }
-        public string TeacherName { get; }
+        public string TeacherName { get; set; }
         public string FirstName { get; set; }
         public string LatName { get; set; }
         public string Course { get; set; }
