@@ -1,0 +1,25 @@
+﻿
+@{
+    @model List<student>
+}
+viewData["title"="Index"]
+}
+<h1>Student</h1>
+
+<h3>Create Student</h3>
+<div class="10">
+
+</div>
+<div class=" row">
+<div class="col-4"><input type="text" name="Name" class="bg-black text-white "  placeholder="FirstName" required /></div>
+<div class="col-3"><input type="text" name="CourseName"  class="bg-black text-white "  placeholder="LastName" reqired/></div>
+
+
+<div id="studentLst">
+
+    @foreach wh (var Course in Model)
+    {
+        <partial name="_student" model="student" />
+    }
+
+</div>

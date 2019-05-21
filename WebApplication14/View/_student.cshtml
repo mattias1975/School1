@@ -1,0 +1,18 @@
+﻿@model  Student
+
+
+ <div class="row" id="@("Student" + Model.Id)">
+        <div class="col-4">@Model.name</div>
+        <div class="col-2">@Model.course</div>
+  
+    <button class="btn btn-succes btn-sm"
+            onclick="Edit('@("student"+Model.id)'@Url.Action("Edit","Student" new { Id = Model.id })')">
+        Edit Student
+    </button>
+    <button class="btn btn-danger btn-sm"
+            onclick="delete('@("student"+Model.id)','@Url.Action("Delete","student", new { Id = Model.id })')">
+
+        DeleteStudent
+    </button>
+     <br>
+</div>
