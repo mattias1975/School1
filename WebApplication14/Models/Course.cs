@@ -20,7 +20,7 @@ namespace ListOfStudents.Models
     public int CourseID { get; set; }
     public string Teacher { get; set; }
     public string FirstName { get;set }
-    public string LastName { get; set }
+    public string LastName {get; set }
 
     {
 
