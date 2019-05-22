@@ -1,12 +1,11 @@
-﻿
+﻿@model List<Student>
+
 @{
-    @model List<student>
-}
-viewData["title"="Index"]
+    ViewData["title"] = "Index";
 }
 <h1>Student</h1>
 
-<h3>Create Student</h3>
+
 <div class="10">
 
 </div>
@@ -15,11 +14,13 @@ viewData["title"="Index"]
 <div class="col-3"><input type="text" name="CourseName"  class="bg-black text-white "  placeholder="LastName" reqired/></div>
 
 
-<div id="studentLst">
+<div id="studentList">
 
-    @foreach wh (var Course in Model)
+    @foreach  (var Student in Model)
     {
-        <partial name="_student" model="student" />
+      <partial name="_Student" model="Student"/>
+      
     }
 
+</div>
 </div>

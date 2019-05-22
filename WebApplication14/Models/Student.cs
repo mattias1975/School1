@@ -4,18 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 
-namespace School.Models
+namespace WebApplication14.Models
 {
-    public class School
-    {
-    }
+    
     public class Student
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string CourseName { get; set;
-     
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string CourseName { get; set; }
+
+    }
+}
 
 
-    
+
   
