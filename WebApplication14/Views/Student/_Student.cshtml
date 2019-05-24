@@ -5,8 +5,9 @@
 <div class="col-4">@Model.Name</div>
 
 <div class="col-3">@Model.CourseName</div>
+<div class="col-3">@Model.Email</div>
 
-<button class="btn btn-success btn-sm"
-        onclick="Edit(@("Student"+Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')")>
-
+<button class="btn btn-danger btn-sm"
+        onclick="delete(@("Student"+Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')")>
+ delete
        </button>
