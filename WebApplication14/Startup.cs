@@ -10,6 +10,8 @@ using School.Controllers;
 using Microsoft.Extensions.Configuration;
 
 using ListOfStudents.Models;
+using ListofPeople.Models;
+using School.Models;
 
 namespace WebApplication14
 {
@@ -30,8 +32,10 @@ namespace WebApplication14
             services.AddDbContext<DBContextStudent>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<DBContextStudent>();
-
+            //    services.AddScoped<DBContextStudent>();
+            //    services.AddDbContext<DBContextStudent>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("Student")));
+            services.AddScoped<IStudentService, StudentService>();
 
             services.AddMvc();
         }
@@ -43,9 +47,10 @@ namespace WebApplication14
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller=student}/{action=student}/{_Student?}");
+                routes.MapRoute("default", "{controller=Student}/{action=Index}/{Student?}");
             });
 
 

@@ -47,7 +47,7 @@ namespace ListofPeople.Models
 
         public List<Student> GetStudents()
         {
-            throw new NotImplementedException();
+            return Students;
         }
 
         public bool Update(Student student)

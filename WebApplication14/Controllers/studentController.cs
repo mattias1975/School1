@@ -18,7 +18,7 @@ namespace School.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_studentService.GetStudents());
         }
         public IActionResult Student(int id)
         {

@@ -10,9 +10,10 @@
 
 </div>
 <div class=" row">
-<div class="col-4"><input type="text" name="Name" class="bg-black text-white "  placeholder="Name" required /></div>
-<div class="col-3"><input type="text" name="CourseName"  class="bg-black text-white "  placeholder="CourseName" reqired/></div>
-<div class="3"></div>
+    <div class="col-4"><input type="text" name="Name" class="bg-black text-white " placeholder="Name" required /></div>
+    <div class="col-3"><input type="text" name="CourseName" class="bg-black text-white " placeholder="CourseName" reqired /></div>
+    <div class="3"><button class="btn btn-success btn-sm">Create</button></div>
+  
 </div>
 
 <div id="studentlist">
@@ -20,6 +21,7 @@
     @foreach  (var Student in Model)
     {
       <partial name="_Student" model="Student"/>
+
       
     }
 
