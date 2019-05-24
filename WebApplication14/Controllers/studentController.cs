@@ -16,7 +16,10 @@ namespace School.Controllers
         {
             _studentService = studentService;
         }
-
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult Student(int id)
         {
             Student stundent = _studentService.FindById(id);
@@ -63,10 +66,15 @@ namespace School.Controllers
             _studentService.Delete(id);
             return Content("");
         }
-        public IActionResult Sort(string sort)
 
+        public IActionResult Sort(string sort)
         {
-            return View("Student", _studentService.GetStudents()
+            if (string.IsNullOrWhiteSpace(sort))//if null or space return View index _studentservice
+            {
+                return View("Index", _studentService.GetStudents());
+            }
+
+            return View("Index", _studentService.GetStudents()
       .Where(p => p.Name.ToLower().Contains(sort) || p.CourseName.ToLower().Contains(sort))
                 .ToList());
 

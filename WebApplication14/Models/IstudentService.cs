@@ -8,7 +8,7 @@ namespace School.Models
 {
     public interface IStudentService
     {
-        Student Create(string name, string course);
+        Student Create(string name, string course, string email);
         Student FindById(int Id);
         List<Student> GetStudents();
         bool Delete(int Id);

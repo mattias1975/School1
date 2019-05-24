@@ -4,26 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace ListOfStudents.Models
-{
-    public Course()
+{ 
+ public class Course
     {
-    }
-    {
-    public Course(int CourseID, string Teacher, string FirstName, string Lastname)
-    {
-        CourseID=courseid{ get; }
-        Teacher = teacher;
-        FirstName = firstName;
-        Lastname = lastname;
+        public Course(int CourseID, string Name, string Email)
+        {
+            CourseID = this.CourseID;
+            Name = this.Name;
+            Email = this.Email;
 
+        }
+        public int CourseID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
     }
-    public int CourseID { get; set; }
-    public string Teacher { get; set; }
-    public string FirstName { get;set }
-    public string LastName {get; set }
 
-    {
-
-    }
-    }
 }
+
+
+
+
+
