@@ -30,7 +30,7 @@ namespace School.Controllers
             return PartialView("_Student", stundent);
         }
         [HttpGet]
-        public IActionResult Edit(int id, string Name, string Course)
+        public IActionResult Edit(int id, string Name, string Course, string Email)
         {
             Student student = _studentService.FindById(id);
             if (student == null)
@@ -55,6 +55,44 @@ namespace School.Controllers
                 return PartialView("_edit", _studentService.FindById(student.Id));
             }
         }
+        [HttpPost]
+        public IActionResult Create(string name, string CourseName, string Email)
+        {
+            if (name == null)
+            {
+                return BadRequest(new { msg = "Write your name" });
+            }
+            if (CourseName == null)
+            {
+                return BadRequest(new { msg = "Write Course Name" });
+            }
+            if (Email == null)
+            {
+                return BadRequest(new { msg = "Write Email" });
+            }
+            Student student = _studentService.Create(name, CourseName, Email);
+            return PartialView("Student", student);
+        }
+
+        //        [HttpPost]
+        //        public IActionResult Confirmcreate(Student student)
+        //        {
+        //            if (student == null)
+        //            {
+        //                return NoContent();
+        //            }
+        //            if (IStudentService.update(student)) ;
+        //            {
+        //                return PartialView("_Student", student);
+        //            }
+        //        }
+        //            else
+        //            {
+        //                return PartialView("_Student", _studentService.FindById(student.Id));
+
+
+        //}
+        //}
         public IActionResult Delete(int id)
         {
 
@@ -75,7 +113,7 @@ namespace School.Controllers
             }
 
             return View("Index", _studentService.GetStudents()
-      .Where(p => p.Name.ToLower().Contains(sort) || p.CourseName.ToLower().Contains(sort))
+        .Where(p => p.Name.ToLower().Contains(sort) || p.CourseName.ToLower().Contains(sort))
                 .ToList());
 
         }
