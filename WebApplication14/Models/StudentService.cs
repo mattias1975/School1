@@ -15,7 +15,7 @@ namespace ListofPeople.Models
         public StudentService()
         {
             Students = new List<Student>();
-            this.Create("xxxxxx", "Rävemåla", "a@a.a");
+            //this.Create("xxxxxx", "Rävemåla", "a@a.a");
 
         }
         public Student Create(string name, string course, string email)
@@ -58,7 +58,7 @@ namespace ListofPeople.Models
                 return false;
             }
             Orginal.Name = student.Name;
-            Orginal.CourseName = student.CourseName;
+            Orginal.Course = student.Course;
             Orginal.Email = student.Email;
 
             return true;

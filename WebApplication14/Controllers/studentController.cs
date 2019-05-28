@@ -56,43 +56,42 @@ namespace School.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Create(string name, string CourseName, string Email)
+        public IActionResult Create(string name, string course, string email)
         {
             if (name == null)
             {
                 return BadRequest(new { msg = "Write your name" });
             }
-            if (CourseName == null)
+            if (course == null)
             {
                 return BadRequest(new { msg = "Write Course Name" });
             }
-            if (Email == null)
+            if (email == null)
             {
                 return BadRequest(new { msg = "Write Email" });
             }
-            Student student = _studentService.Create(name, CourseName, Email);
+            Student student = _studentService.Create(name, course, email);
             return PartialView("Student", student);
         }
 
-        //        [HttpPost]
-        //        public IActionResult Confirmcreate(Student student)
-        //        {
-        //            if (student == null)
-        //            {
-        //                return NoContent();
-        //            }
-        //            if (IStudentService.update(student)) ;
-        //            {
-        //                return PartialView("_Student", student);
-        //            }
-        //        }
-        //            else
-        //            {
-        //                return PartialView("_Student", _studentService.FindById(student.Id));
+        [HttpPost]
+        public IActionResult ConfirmCreate(Student student)
+        {
+            if (student == null)
+            {
+                return NoContent();
+            }
+            if (_studentService.Update(student))
+            {
+                return PartialView("_Student", student);
+            }
 
+            else
+            {
+                return PartialView("_Student", _studentService.FindById(student.Id));
+            }
+        }
 
-        //}
-        //}
         public IActionResult Delete(int id)
         {
 
@@ -113,7 +112,7 @@ namespace School.Controllers
             }
 
             return View("Index", _studentService.GetStudents()
-        .Where(p => p.Name.ToLower().Contains(sort) || p.CourseName.ToLower().Contains(sort))
+        .Where(p => p.Name.ToLower().Contains(sort) || p.Course.ToLower().Contains(sort))
                 .ToList());
 
         }

@@ -11,7 +11,7 @@ namespace WebApplication14.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string CourseName { get; set; }
+        public string Course { get; set; }
         public string Email{ get; set; }
 
         public Student(){}
@@ -19,7 +19,7 @@ namespace WebApplication14.Models
         public Student(int id,string name, string course, string email)
         {
             Name = name;
-            CourseName = course;
+            Course = course;
             Email = email;
             Id = id;
                     }
