@@ -50,7 +50,7 @@ namespace WebApplication14
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller=Student}/{action=Index}/{Student?}");
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
 
 

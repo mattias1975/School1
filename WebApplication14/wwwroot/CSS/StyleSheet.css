@@ -1,9 +1,22 @@
 ﻿body {
-    background-color: black;
-    color:blanchedalmond
+    background-color: #808080;
 }
-div {
-    background-color: blue;
-    text-align: center;
-    color:black
+
+h1 {
+    color: #ffd800;
 }
+
+h2 {
+    color: #00ff90;
+}
+
+h3 {
+    color: seagreen;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:55%;
+}
+

@@ -23,10 +23,10 @@ function SaveEditItem(html_id, student_id, edit_url) {
 };
 
 function CreateItem(create_url) {
-    var student = {
+    //var student = {
 
-    }
-    //alert("1")
+    //}
+
     //ajax post
     $.post(create_url,
         {
@@ -43,6 +43,11 @@ function CreateItem(create_url) {
 
     // inject respone Student in list "id:studentlist"
 
+}
+function DeleteItem(html_id, edit_url) {
+    $.get(edit_url, function (data, status) {
+        $('#' + html_id).replaceWith(data);
+    });
 }
 
 //function rrr (html_id, edit_url) {
