@@ -8,12 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using School.Controllers;
 using Microsoft.Extensions.Configuration;
-
-using ListOfStudents.Models;
-using ListofPeople.Models;
 using School.Models;
 
-namespace WebApplication14
+namespace School
 {
     public class Startup
     {
@@ -29,13 +26,14 @@ namespace WebApplication14
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
     public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DBContextStudent>(options =>
+            services.AddDbContext<DBContextSchool>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //    services.AddScoped<DBContextStudent>();
             //    services.AddDbContext<DBContextStudent>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("Student")));
             services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<ITeacherService, TeacherService>();
 
             services.AddMvc();
         }

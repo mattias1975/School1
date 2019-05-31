@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication14.Models;
 
-namespace ListOfStudents.Models
+
+namespace School.Models
 {
     public class DbInit
     {
-        public static void init(DBContextStudent context)
+        public static void init(DBContextSchool context)
         {
             context.Database.EnsureCreated();
 

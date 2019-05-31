@@ -1,12 +1,24 @@
-﻿@model List<Student>
+﻿@*@model List<Teacher>*@
 @{
-    ViewData["Title"] = "Student";
+    ViewData["Title"] = "Teacher";
 }
 
-<h2>List Of Student</h2>
+<h2>Theacher</h2>
 
 
 <div class="col-12">
+    <div class="row">
+        <input type="text" id="Course" name="Course" placeholder="Course" />
+        <input type="text" id="Student" name="Student" placeholder="Student" />
+        <button class="btn btn-success btn-sm" onclick="CreateItem('@Url.Action("Create","Teacher")')">Add student</button>
+    </div>
+
+    @*@foreach (var item in Model)
+    {
+    <partial name="_Teacher" model="item" />
+    }*@
+        
+
 
 
 </div>

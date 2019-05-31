@@ -3,16 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication14.Models;
 
-namespace ListOfStudents.Models
+
+namespace School.Models
 {
-    public class DBContextStudent: DbContext
+    public class DBContextSchool: DbContext
     {
-        public DBContextStudent(DbContextOptions<DBContextStudent> options) : base(options) { }
+        public DBContextSchool(DbContextOptions<DBContextSchool> options) : base(options) { }
       
 
         public DbSet<Student> Student { get; set; }
+        public DbSet<Teacher> Teacher { get; set; }
 
 
     }

@@ -3,40 +3,59 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication14.Models;
 
-namespace ListofPeople.Models
+
+namespace School.Models
 {
     public class StudentService : IStudentService
     {
-        static int idCounter = 1;
+        readonly DBContextSchool _dBContextSchool;
+
+        public StudentService(DBContextSchool dBContextSchool)
+        {
+            _dBContextSchool = dBContextSchool;
+        }
+
+
+        //static int idCounter = 1;
         static List<Student> Students;
 
         public StudentService()
         {
-            Students = new List<Student>();
+            //Students = new List<Student>();
             //this.Create("xxxxxx", "Rävemåla", "a@a.a");
+            _dBContextSchool.Student.ToList();
 
         }
-        public Student Create(string name, string course, string email)
+        public Student Create(Student student)
         {
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(course) || string.IsNullOrWhiteSpace(email))
-            {
-                return null;
-            }
-            Student student = new Student(idCounter++,name, course,email);
-            Students.Add(student);
+            //if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email))
+            //{
+            //    return null;
+            //}
+
+            //Student student = new Student(name, email);
+
+            //Students.Add(student);
+
+            _dBContextSchool.Student.Add(student);
+            _dBContextSchool.SaveChanges();
+
             return student;
         }
 
         public bool Delete(int id)
         {
-            return Students.Remove(Students.FirstOrDefault(p => p.Id == id));
+            Student student = _dBContextSchool.Student.SingleOrDefault(p => p.Id == id);
+
+            // kod saknas
+
+            return false;
         }
 
         public Student FindById(int id)
         {
-            return Students.FirstOrDefault(p => p.Id == id);
+            return _dBContextSchool.Student.SingleOrDefault(p => p.Id == id);
         }
 
 
@@ -47,18 +66,18 @@ namespace ListofPeople.Models
 
         public List<Student> GetStudents()
         {
-            return Students;
+            return _dBContextSchool.Student.ToList();
+            //return Students;
         }
 
         public bool Update(Student student)
         {
-            Student Orginal = Students.SingleOrDefault(p => p.Id == student.Id);
+            Student Orginal = _dBContextSchool.Student.SingleOrDefault(p => p.Id == student.Id);
             if (Orginal == null)
             {
                 return false;
             }
             Orginal.Name = student.Name;
-            Orginal.Course = student.Course;
             Orginal.Email = student.Email;
 
             return true;

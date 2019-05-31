@@ -1,0 +1,16 @@
+﻿@model Teacher
+
+
+<div  class="row"  id="@("Teacher" + Model.Id)">
+
+    <div class="col-3">@Model.Name</div>
+    <div class="col-3">@Model.Email</div>
+
+    <button class="btn btn-success btn-sm"
+            onclick="EditListItem('@("Teacher" + Model.Id)','@Url.Action("Edit","Teacher",new { id = Model.Id })')">
+        Edit
+    </button>
+   
+
+    <br>
+</div>

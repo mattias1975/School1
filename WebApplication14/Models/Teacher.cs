@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore;
 
 namespace School.Models
 {
-    
-    public class Student
+    public class Teacher
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Email{ get; set; }
+        public string Email { get; set; }
 
-        public Student(){}
+        public Teacher() { }
 
-        public Student(int id,string name, string email)
+        public Teacher(int id, string name, string email)
         {
             Name = name;
             Email = email;
@@ -23,7 +21,3 @@ namespace School.Models
         }
     }
 }
-
-
-
-  

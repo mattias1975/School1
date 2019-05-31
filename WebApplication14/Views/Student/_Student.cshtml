@@ -1,13 +1,12 @@
 ﻿@model Student
 
 
-<div  class="row"  id="@("¨Student" + Model.Id)">
+<div  class="row"  id="@("Student" + Model.Id)">
 
     <div class="col-3">@Model.Name</div>
-    <div class="col-3">@Model.Course</div>
     <div class="col-3">@Model.Email</div>
 
-    <button class="btn btn-success btn-sm"
+    <button class="btn btn-success btn-sm m-1"
             onclick="EditListItem('@("Student" + Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')">
         Edit
     </button>
