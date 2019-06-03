@@ -77,7 +77,7 @@ namespace School.Controllers
 
             _studentService.Create(student);
 
-            return PartialView("Student", student);
+            return PartialView("_student", student);
         }
 
         [HttpPost]
