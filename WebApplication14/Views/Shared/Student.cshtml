@@ -4,13 +4,25 @@
 <div class="row" id="@("¨Student" + Model.Id)">
 
 
-        <div class="col-3">@Model.Name</div>
-        <div class="col-3">@Model.Email</div>
-        <div class="col-2"></div>
+    <div class="col-3">@Model.Name</div>
+    <div class="col-3">@Model.Email</div>
+    <div class="col-3">
         <button class="btn btn-succes btn-sm"
-                onclick="Edit('@("student"+Model.Id)'@Url.Action("Edit","Student",new { Id = Model.Id })')"></button>
+                onclick="EditListItem('@("student"+Model.Id)'@Url.Action("Edit","Student",new { Id = Model.Id })')">
+            edit5
+        </button>
     </div>
-<div class="col-2">
- <button class="btn btn-danger btn-sm" 
-         onclick="DeleteItem('@("student"+Model.Id)'@Url.Action("Delete","Student", new { id = Model.Id })')">Delete</button>
+    <div class="-3">
+        <button class="btn btn-danger btn-sm"
+                onclick="DeleteItem('@("student"+Model.Id)'@Url.Action("Delete", "Student", new { id=Model.Id})')">
+            Delete
+        </button>"
+    </div>
 </div>
+
+
+
+@*<div class="col-2">
+     <button class="btn btn-danger btn-sm"
+             onclick="DeleteItem('@("student"+Model.Id)'@Url.Action("Delete","Student", new { id = Model.Id })')">Delete5</button>
+    </div>*@

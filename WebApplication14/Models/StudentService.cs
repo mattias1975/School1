@@ -48,9 +48,10 @@ namespace School.Models
         {
             Student student = _dBContextSchool.Student.SingleOrDefault(p => p.Id == id);
 
-            // kod saknas
+             _dBContextSchool.Student.Remove(student);
+            _dBContextSchool.SaveChanges();
 
-            return false;
+            return true;
         }
 
         public Student FindById(int id)

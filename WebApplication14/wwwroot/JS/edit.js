@@ -9,8 +9,8 @@ function EditListItem(html_id, edit_url) {
 function SaveEditItem(html_id, student_id, edit_url) {
     var student = {
         Id: student_id,
-        Name: $('#name' + student_id).val(),
-        Email: $('#email' + student_id).val()
+        Name: $('#Name' + student_id).val(),
+        Email: $('#Email' + student_id).val()
     }
     $.post(edit_url,
         {

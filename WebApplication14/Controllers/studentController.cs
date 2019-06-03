@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -99,13 +100,17 @@ namespace School.Controllers
 
         public IActionResult Delete(int id)
         {
+            Student student = _studentService.FindById((int)id);
+            //Student student = _studentService.FirstOrDefault(p => p.Id == id);
 
-            Student student = _studentService.FindById(id);
-            if (student == null)
+            if (student== null)
             {
-                return NotFound();
+                return Content("");
             }
-            _studentService.Delete(id);
+
+            _studentService.Delete(id);//bara för spara
+            
+
             return Content("");
         }
 

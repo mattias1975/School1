@@ -5,12 +5,18 @@
 
     <div class="col-3">@Model.Name</div>
     <div class="col-3">@Model.Email</div>
-
-    <button class="btn btn-success btn-sm m-1"
-            onclick="EditListItem('@("Student" + Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')">
-        Edit
-    </button>
-   
+    <div class="col-3">
+        <button class="btn btn-success btn-sm m-1"
+                onclick="EditListItem('@("Student" + Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')">
+            Edit
+        </button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-danger btn-sm m-1"
+                onclick="DeleteItem('@("Student" + Model.Id)','@Url.Action("Delete","Student",new { id = Model.Id })')">
+         Delete
+        </button>
+    </div>
 
     <br>
 </div>
