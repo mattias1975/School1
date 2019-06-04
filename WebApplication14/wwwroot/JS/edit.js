@@ -43,10 +43,17 @@ function CreateItem(create_url) {
 
 }
 function DeleteItem(html_id, edit_url) {
+
+    
+   
+
     $.get(edit_url, function (data, status) {
         $('#' + html_id).replaceWith(data);
-    });
-}
+        });
+    }
+
+    
+
 
 //function rrr (html_id, edit_url) {
 //    $.get(edit_url, function (data, status) {

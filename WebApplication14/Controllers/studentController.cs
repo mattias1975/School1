@@ -100,6 +100,7 @@ namespace School.Controllers
 
         public IActionResult Delete(int id)
         {
+
             Student student = _studentService.FindById((int)id);
             //Student student = _studentService.FirstOrDefault(p => p.Id == id);
 
