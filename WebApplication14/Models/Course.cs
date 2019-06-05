@@ -8,16 +8,16 @@ namespace School.Models
 { 
  public class Course
     {
-        public Course(int CourseID, string Name, string Email)
+        public Course(int CourseID, string Name, string Assigment)
         {
             CourseID = this.CourseID;
             Name = this.Name;
-            Email = this.Email;
+            Assigment = this.Assigment;
 
         }
         public int CourseID { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
+        public string Assigment { get; set; }
     }
 
 }
