@@ -6,7 +6,7 @@
     <div class="col-3"><input id="@("Email" + Model.Id)" type="email" name="Email"  value="@Model.Email" /></div>
     <div class="col-3">
         <button class="btn btn-success btn-sm"
-                onclick="SaveEditItem('@("Teacher" + Model.Id)','@(Model.Id)','@Url.Action("ConfirmEdit","Teacher")')">
+                onclick="SaveEditTeacher('@("Teacher" + Model.Id)','@(Model.Id)','@Url.Action("ConfirmEdit","Teacher")')">
            Save
         </button>
     </div>

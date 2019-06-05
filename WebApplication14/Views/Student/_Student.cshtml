@@ -7,14 +7,12 @@
     <div class="col-3">@Model.Email</div>
     <div class="col-3">
         <button class="btn btn-success btn-sm m-1"
-                onclick="EditListItem('@("Student" + Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')">
+                onclick="EditStudent('@("Student" + Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')">
             Edit
         </button>
         
-
-
             <button class="btn btn-danger btn-sm m-1"
-                    onclick="DeleteItem('@("Student" + Model.Id)','@Url.Action("Delete","Student",new { id = Model.Id })')">
+                    onclick="DeleteStudent('@("Student" + Model.Id)','@Url.Action("Delete","Student",new { id = Model.Id })')">
                 Delete
             </button>
 
