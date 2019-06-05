@@ -17,13 +17,13 @@
             <button class="btn btn-success btn-sm" onclick="CreateItem('@Url.Action("Create","Student")')">Add student</button>
 
         </div>
-        </div>
-
-        <div class="col-12" id="studentlist">
-            @foreach (var item in Model)
-            {
-                <partial name="_Student" model="item" />
-            }
-        </div>
-
     </div>
+
+    <div class="col-12" id="studentlist">
+        @foreach (var item in Model)
+        {
+            <partial name="_Student" model="item" />
+        }
+    </div>
+
+</div>

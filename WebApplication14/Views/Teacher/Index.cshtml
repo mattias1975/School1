@@ -1,24 +1,24 @@
-﻿@*@model List<Teacher>*@
+﻿@model IEnumerable<Teacher>
 @{
     ViewData["Title"] = "Teacher";
 }
 
 <h2>Theacher</h2>
-
-
 <div class="col-12">
+
     <div class="row">
-        <input type="text" id="Course" name="Course" placeholder="Course" />
-        <input type="text" id="Student" name="Student" placeholder="Student" />
+        <input type="text" id="TeacherName" name="TeacherName" placeholder="TeacherName" />
+        <input type="text" id="TeacherEmail" name="Student" placeholder="TeacherEmail" />
         <button class="btn btn-success btn-sm" onclick="CreateItem('@Url.Action("Create","Teacher")')">Add student</button>
     </div>
 
-    @*@foreach (var item in Model)
-    {
-    <partial name="_Teacher" model="item" />
-    }*@
-        
+    <div class="col-12" id="teacherlist">
+        @foreach (var item in Model)
+        {
+            @*<partial name="_Teacher" model="item" />*@
+        }
 
-
+    </div>
 
 </div>
+
