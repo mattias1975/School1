@@ -45,11 +45,17 @@ function DeleteStudent(html_id, edit_url) {
         });
     }
 //Teacher
+
+function EditTeacher(html_id, edit_url) {
+    $.get(edit_url, function (data, status) {
+        $('#' + html_id).replaceWith(data);
+    });
+}
 function SaveEditTeacher(html_id, teacher_id, edit_url) {
     var teacher = {
         Id: teacher_id,
-        Name: $('#name' + teacher_id).val(),
-        Email: $('#email' + teacher_id).val()
+        Name: $('#Name' + teacher_id).val(),
+        Email: $('#Email' + teacher_id).val()
     }
     $.post(edit_url,
         {
