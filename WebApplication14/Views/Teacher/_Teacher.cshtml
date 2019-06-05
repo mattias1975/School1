@@ -3,8 +3,8 @@
 
 <div class="row" id="@("Teacher" + Model.Id)">
 
-    <div class="col-3">@Model.TeacherName</div>
-    <div class="col-3">@Model.TeacherEmail</div>
+    <div class="col-3">@Model.Name</div>
+    <div class="col-3">@Model.Email</div>
     <div class="col-3">
         <button class="btn btn-success btn-sm m-1"
                 onclick="EditListItem('@("Teacher" + Model.Id)','@Url.Action("Edit","Teacher",new { id = Model.Id })')">

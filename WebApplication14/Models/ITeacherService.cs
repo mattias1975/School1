@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace School.Models
 {
-    public class ITeacherService
+    public interface ITeacherService
     {
-        //Teacher Create(string name, string email);
-        //Teacher FindById(int Id);
-        //List<Teacher> GetTeachers();
-        //bool Delete(int Id);
-        //bool Update(Teacher teacher);
+        Teacher Create(Teacher teacher);
+        Teacher FindById(int Id);
+        List<Teacher> GetTeachers();
+        bool Delete(int Id);
+        bool Update(Teacher teacher);
     }
 }

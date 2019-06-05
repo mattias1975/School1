@@ -8,15 +8,16 @@ namespace School.Models
     public class Teacher
     {
         public int Id { get; set; }
-        public string TeacherName { get; set; }
-        public string TeacherEmail { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
 
         public Teacher() { }
 
-        public Teacher(int id, string Teachername, string Teacheremail)
+        public Teacher(int id, string name, string email)
         {
-            TeacherName = Teachername;
-            TeacherEmail = Teacheremail;
+          //Prop = input
+            Name = name;
+            Email = email;
             Id = id;
         }
     }

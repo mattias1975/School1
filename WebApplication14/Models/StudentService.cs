@@ -83,6 +83,11 @@ namespace School.Models
 
             return true;
         }
+
+        public bool Update(Teacher teacher)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

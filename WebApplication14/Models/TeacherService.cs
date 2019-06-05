@@ -18,7 +18,7 @@ namespace School.Models
 
 
         //static int idCounter = 1;
-        static List<Teacher> Teachers;
+        //static List<Teacher> Teachers;
 
         public TeacherService()
         {
@@ -37,7 +37,7 @@ namespace School.Models
 
         public bool Delete(int id)
         {
-            Teacher teeacher = _dBContextSchool.Teacher.SingleOrDefault(p => p.Id == id);
+            Teacher teacher = _dBContextSchool.Teacher.SingleOrDefault(p => p.Id == id);
 
             _dBContextSchool.Teacher.Remove(teacher);
             _dBContextSchool.SaveChanges();
@@ -51,10 +51,10 @@ namespace School.Models
         }
 
 
-        public List<Teacher> GetTeacher()
-        {
-            return teacher;
-        }
+        //public List<Teacher> GetTeacher()
+        //{
+        //    return teacher;
+        //}
 
         public List<Teacher> GetTeachers()
         {
@@ -69,8 +69,8 @@ namespace School.Models
             {
                 return false;
             }
-            Orginal.TeacherEmail = teacher.TeacherName;
-            Orginal.TeacherEmail = teacher.TeacherEmail;
+            Orginal.Email = teacher.Name;
+            Orginal.Email = teacher.Email;
 
             return true;
         }
