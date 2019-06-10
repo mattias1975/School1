@@ -22,7 +22,7 @@ function SaveEditStudent(html_id, student_id, edit_url) {
 };
 
 function CreateStudent(create_url) {
-  
+
     $.post(create_url,
         {
             Name: $('#name').val(),
@@ -39,11 +39,11 @@ function CreateStudent(create_url) {
 
 }
 function DeleteStudent(html_id, edit_url) {
-    
+
     $.get(edit_url, function (data, status) {
         $('#' + html_id).replaceWith(data);
-        });
-    }
+    });
+}
 //Teacher
 
 function EditTeacher(html_id, edit_url) {
@@ -67,11 +67,11 @@ function SaveEditTeacher(html_id, teacher_id, edit_url) {
 };
 
 function CreateItem(create_url) {
- 
+
     $.post(create_url,
         {
-            Name: $('#name').val(),
-            Email: $('#email').val()
+            Name: $('#Name').val(),
+            Email: $('#Email').val()
         }
         , function (data, status) {
 
@@ -91,6 +91,48 @@ function DeleteTeacher(html_id, edit_url) {
     });
 }
 
-    
+//Course
+
+function EditCourse(html_id, edit_url) {
+    $.get(edit_url, function (data, status) {
+        $('#' + html_id).replaceWith(data);
+    });
+}
+function SaveEditCourse(html_id, course_id, edit_url) {
+    var course = {
+        Id: course_id,
+        CourseName: $('#CourseName' + course_id).val(),
+        Assigment: $('#Assigment' + course_id).val()
+    }
+    $.post(edit_url,
+        {
+            course: course
+        }
+        , function (data, status) {
+            $('#' + html_id).replaceWith(data);
+        });
+};
+
+function CreateCourse(create_url) {
+
+    $.post(create_url,
+        {
+            CourseName: $('#CourseName').val(),
+            Assigment: $('#Assigment').val()
+        }
+        , function (data, status) {
+
+            $("#Courselist").append(data);
+        });
+
+}
+function DeleteCourse(html_id, edit_url) {
+
+
+    $.get(edit_url, function (data, status) {
+        $('#' + html_id).replaceWith(data);
+    });
+}
+
 
 

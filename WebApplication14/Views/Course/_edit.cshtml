@@ -1,0 +1,17 @@
+﻿@model Course
+
+
+<div class="row" id="@("Course" + Model.Id)">
+    <div class="col-3"><input id="@("CourseName" +Model.Id)" type="text" name="course" value="@Model.CourseName"/></div>
+    <div class="col-3"><input id="@("Assigment" +Model.Id)" type="text" name="name" value="@Model.Assigment" /></div>
+    
+    <div class="col-3">
+        <button class="btn btn-success btn-sm"
+                 onclick="SaveEditCourse('@("Course" + Model.Id)','@(Model.Id)','@Url.Action("ConfirmEdit","Course")')">
+           Save
+        </button>
+    </div>
+</div>
+
+
+

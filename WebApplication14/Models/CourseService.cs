@@ -16,19 +16,18 @@ namespace School.Models
             _dBContextSchool = dBContextSchool;
         }
 
+        //static List<Course> course;
 
-        //static int idCounter = 1;
-        static List<Course> Course;
-
-        public CourseService()
+        public List<Course> GetCourses()
         {
-        
-            _dBContextSchool.course.ToList();
+
+            return _dBContextSchool.Course.ToList();
 
         }
         public Course Create(Course course)
         {
-          
+
+
             _dBContextSchool.Course.Add(course);
             _dBContextSchool.SaveChanges();
 
@@ -37,9 +36,9 @@ namespace School.Models
 
         public bool Delete(int id)
         {
-            Course Course = _dBContextSchool.Course.SingleOrDefault(p => p.Id == id);
+            Course course = _dBContextSchool.Course.SingleOrDefault(p => p.Id == id);
 
-             _dBContextSchool.Course.Remove(course);
+            _dBContextSchool.Course.Remove(course);
             _dBContextSchool.SaveChanges();
 
             return true;
@@ -51,16 +50,11 @@ namespace School.Models
         }
 
 
-        public List<Course> GetCourse()
-        {
-            return Course;
-        }
+        //public List<Course> GetCourses()
+        //{
+        //    return course;
+        //}
 
-        public List<Course> Getcourse()
-        {
-            return _dBContextSchool.Courses.ToList();
-            //return Students;
-        }
 
         public bool Update(Course course)
         {
@@ -69,18 +63,19 @@ namespace School.Models
             {
                 return false;
             }
-            Orginal.Name = course.Name;
-            Orginal.Email = email.Email;
+            Orginal.CourseName = course.CourseName;
+            Orginal.Assigment = course.Assigment;
+            Orginal.Id= course.Id;
 
             return true;
         }
 
-        public bool Update(Course course)
+        public Student FindById(object iD)
         {
             throw new NotImplementedException();
         }
 
-        public List<Course> GetCourses()
+        Course ICourseService.FindById(object iD)
         {
             throw new NotImplementedException();
         }

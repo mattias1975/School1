@@ -3,10 +3,10 @@
 
 <div class="row" id="@("Student" + Model.Id)">
     <div class="col-3"><input id="@("Name" +Model.Id)" type="text" name="name" value="@Model.Name" /></div>
-    <div class="col-3"><input id="@("Email" + Model.Id)" type="email" name="email"  value="@Model.Email" /></div>
+    <div class="col-3"><input id="@("Email" + Model.Id)" type="text" name="Assigment"  value="@Model.Email" /></div>
     <div class="col-3">
         <button class="btn btn-success btn-sm"
-                onclick="SaveEditStudent('@("Student" + Model.Id)','@(Model.Id)','@Url.Action("ConfirmEdit","Student")')">
+                onclick="SaveEditCourse('@("Student" + Model.Id)','@(Model.Id)','@Url.Action("ConfirmEdit","Student")')">
            Save
         </button>
     </div>

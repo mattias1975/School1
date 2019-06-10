@@ -11,21 +11,23 @@ namespace School.Controllers
 {
     public class CourseController : Controller
     {
-        IStudentService _studentService;
+        ICourseService _courseService;
+
+        //public object ID { get; private set; }
 
         public CourseController(ICourseService courseService)
         {
-            _CourseService = coursService;
+            _courseService = courseService;
         }
 
         public IActionResult Index()
         {
-            return View(_courseService.GetCoureses());
+            return View(_courseService.GetCourses());
         }
 
         public IActionResult Course(int id)
         {
-            Student Course= _courseService.FindById(id);
+            Course Course = _courseService.FindById(id);
             if (Course == null)
             {
                 return NotFound();
@@ -33,13 +35,13 @@ namespace School.Controllers
             return PartialView("_Course", Course);
         }
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int? Id)
         {
-            if (id == null)
+            if (Id == null)
             {
                 return NotFound();
             }
-            Student course = _courseService.FindById((int)id);
+            Course course = _courseService.FindById((int)Id);
             if (course == null)
             {
                 return NotFound();
@@ -53,7 +55,7 @@ namespace School.Controllers
             {
                 return NotFound();
             }
-            if (_studentService.Update(course))
+            if (_courseService.Update(course))
             {
                 return PartialView("_course", course);
             }
@@ -65,19 +67,11 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult Create(Course course)
         {
-            //if (name == null)
-            //{
-            //    return BadRequest(new { msg = "Write your name" });
-            //}
-            //if (email == null)
-            //{
-            //    return BadRequest(new { msg = "Write Email" });
-            //}
-            //Student student = _studentService.Create();
 
-            _studentService.Create(course);
 
-            return PartialView("_student", course);
+            _courseService.Create(course);
+
+            return PartialView("_Course", course);
         }
 
         [HttpPost]
@@ -87,7 +81,7 @@ namespace School.Controllers
             {
                 return NoContent();
             }
-            if (_studentService.Update(course))
+            if (_courseService.Update(course))
             {
                 return PartialView("_Course", course);
             }
@@ -98,36 +92,23 @@ namespace School.Controllers
             }
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int Id)
         {
 
-            Course course = _courseService.FindById((int)id);
-            //Student student = _studentService.FirstOrDefault(p => p.Id == id);
+            Course course = _courseService.FindById((int)Id);
+
 
             if (course == null)
             {
                 return Content("");
             }
 
-            _courseService.Delete(id);//bara för spara
+            _courseService.Delete(Id);
 
 
             return Content("");
         }
 
-
-        //public IActionResult Sort(string sort)
-        //{
-        //    if (string.IsNullOrWhiteSpace(sort))//if null or space return View index _studentservice
-        //    {
-        //        return View("Index", _studentService.GetStudents());
-        //    }
-
-        //    return View("Index", _studentService.GetStudents()
-        //  .Where(p => p.Name.ToLower().Contains(sort) || p.Course.ToLower().Contains(sort))
-        //        .ToList());
-
-        //}
 
 
 

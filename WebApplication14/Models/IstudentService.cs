@@ -13,7 +13,7 @@ namespace School.Models
         List<Student> GetStudents();
         bool Delete(int Id);
         bool Update(Student student);
-        bool Update(Teacher teacher);
+        //bool Update(Teacher teacher);
         //void saveChanges(int id);
     }
 }

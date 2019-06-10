@@ -34,6 +34,7 @@ namespace School
             //options.UseSqlServer(Configuration.GetConnectionString("Student")));
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<ICourseService, CourseService>();
 
             services.AddMvc();
         }

@@ -5,18 +5,20 @@ using System.Threading.Tasks;
 
 
 namespace School.Models
-{ 
- public class Course
+{
+    public class Course
     {
-        public Course(int CourseID, string Name, string Assigment)
+        public Course(int Id, string CourseName, string Assigment)
         {
-            CourseID = this.CourseID;
-            Name = this.Name;
+            Id = this.Id;
+            CourseName= this.CourseName;
             Assigment = this.Assigment;
 
         }
-        public int CourseID { get; set; }
-        public string Name { get; set; }
+        public Course() { }
+
+        public int Id { get; set; }
+        public string CourseName {get; set;}
         public string Assigment { get; set; }
     }
 

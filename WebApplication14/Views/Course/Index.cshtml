@@ -1,4 +1,4 @@
-﻿@model List<Student>
+﻿@model List<Course>
 @{
     ViewData["Title"] = "Courses";
 }
@@ -6,11 +6,17 @@
 <h2>Add a Course</h2>
 <div class="col-12">
     <div class="row">
-        <div class="col-3"><input type="text" id="Student" placeholder="Student name" class="bg-white text-dark" required /></div>
-        <div class="col-3"><input type="text" id="Course" placeholder="Course name" class="bg-white text-dark" required /></div>
-        <div class="col-3"><input type="text" id="Teacher" placeholder="Theacher" class="bg-white text-dark" required /></div>
-        <div class="col-3"><button class="btn btn-success btn-sm"> Add Course</button></div>
+        <div class="col-3"><input type="text" id="CourseName" placeholder="Course Name" class="bg-white text-dark" required /></div>
+        <div class="col-3"><input type="text" id="Assigment" placeholder="Assigment" class="bg-white text-dark" required /></div>
+        
+        <button class="btn btn-success btn-sm" onclick="CreateCourse('@Url.Action("Create","Course")')">Add Course</button>
     </div>
     </div>
+<div class="col-12" id="Courselist">
+    @foreach (var item in Model)
+    {
+        <partial name="_Course" model="item" />
+    }
+</div>
 
 

@@ -18,25 +18,17 @@ namespace School.Models
 
 
         //static int idCounter = 1;
-        static List<Student> Students;
+        static List<Student> Student;
 
         public StudentService()
         {
-            //Students = new List<Student>();
-            //this.Create("xxxxxx", "Rävemåla", "a@a.a");
+
             _dBContextSchool.Student.ToList();
 
         }
         public Student Create(Student student)
         {
-            //if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email))
-            //{
-            //    return null;
-            //}
-
-            //Student student = new Student(name, email);
-
-            //Students.Add(student);
+       
 
             _dBContextSchool.Student.Add(student);
             _dBContextSchool.SaveChanges();
@@ -60,9 +52,9 @@ namespace School.Models
         }
 
 
-        public List<Student> GetPeople()
+        public List<Student> GetStudent()
         {
-            return Students;
+            return Student;
         }
 
         public List<Student> GetStudents()
@@ -84,10 +76,7 @@ namespace School.Models
             return true;
         }
 
-        public bool Update(Teacher teacher)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }
 

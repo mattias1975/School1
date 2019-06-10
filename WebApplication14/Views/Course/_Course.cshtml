@@ -1,0 +1,24 @@
+﻿@model Course
+
+
+<div class="row" ID="@("Course" + Model.Id)">
+
+    
+    <div class="col-3">@Model.CourseName</div>
+    <div class="col-3">@Model.Assigment</div>
+    <div class="col-3">
+        <button class="btn btn-success btn-sm m-1"
+                onclick="EditCourse('@("Course" + Model.Id)','@Url.Action("Edit","Course",new { id = Model.Id })')">
+            Edit
+        </button>
+
+        <button class="btn btn-danger btn-sm m-1"
+                onclick="DeleteCourse('@("Course" + Model.Id)','@Url.Action("Delete","Course",new { id = Model.Id })')">
+            Delete
+        </button>
+
+
+    </div>
+
+    <br>
+</div>
