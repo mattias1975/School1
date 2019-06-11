@@ -109,7 +109,23 @@ namespace School.Controllers
             return Content("");
         }
 
+        public IActionResult AddTeacherToCourse(int id)
+        {
 
+
+            return View();
+        }
+        public IActionResult Details(int id)
+        {
+
+            Course Course = _courseService.FindById(id);
+            if (Course == null)
+            {
+                return NotFound();
+            }
+    
+            return View(Course);
+        }
 
 
     }

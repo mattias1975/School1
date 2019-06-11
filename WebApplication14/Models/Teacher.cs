@@ -15,10 +15,12 @@ namespace School.Models
 
         public Teacher(int id, string name, string email)
         {
-          //Prop = input
+          
             Name = name;
             Email = email;
             Id = id;
+           
         }
+  //public Student AssignedTo { get; set; }
     }
 }

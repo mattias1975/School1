@@ -18,7 +18,7 @@ namespace School.Models
 
 
         //static int idCounter = 1;
-        static List<Teacher> Teachers;
+        //static List<Teacher> Teachers;
 
         public TeacherService()
         {

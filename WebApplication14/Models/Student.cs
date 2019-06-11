@@ -21,6 +21,7 @@ namespace School.Models
             Email = email;
             Id = id;
         }
+        //public List<Student> students { get; set; }
     }
 }
 

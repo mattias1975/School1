@@ -9,8 +9,8 @@ function EditStudent(html_id, edit_url) {
 function SaveEditStudent(html_id, student_id, edit_url) {
     var student = {
         Id: student_id,
-        Name: $('#Name' + student_id).val(),
-        Email: $('#Email' + student_id).val()
+        name: $('#name' + student_id).val(),
+        email: $('#email' + student_id).val()
     }
     $.post(edit_url,
         {
@@ -25,8 +25,8 @@ function CreateStudent(create_url) {
 
     $.post(create_url,
         {
-            Name: $('#name').val(),
-            Email: $('#email').val()
+            name: $('#name').val(),
+            email: $('#email').val()
         }
         , function (data, status) {
 
@@ -54,8 +54,8 @@ function EditTeacher(html_id, edit_url) {
 function SaveEditTeacher(html_id, teacher_id, edit_url) {
     var teacher = {
         Id: teacher_id,
-        Name: $('#Name' + teacher_id).val(),
-        Email: $('#Email' + teacher_id).val()
+        name: $('#Name' + teacher_id).val(),
+        email: $('#Email' + teacher_id).val()
     }
     $.post(edit_url,
         {
@@ -70,8 +70,8 @@ function CreateItem(create_url) {
 
     $.post(create_url,
         {
-            Name: $('#Name').val(),
-            Email: $('#Email').val()
+            name: $('#name').val(),
+            email: $('#email').val()
         }
         , function (data, status) {
 
