@@ -104,14 +104,9 @@ namespace School.Controllers
 
             _teacherService.Delete(id);
 
-
             return Content("");
         }
-
-
-        
-
-
+      
 
     }
 }

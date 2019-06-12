@@ -1,4 +1,5 @@
-﻿using School.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using School.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,12 @@ namespace School.Models
         {
             return _dBContextSchool.Course.SingleOrDefault(p => p.Id == id);
         }
-
+        public Course CourseDetails(int id)
+        {
+            return _dBContextSchool.Course
+                .Include(x => x.Teacher)
+                .SingleOrDefault(p => p.Id == id);
+        }
 
         //public List<Course> GetCourses()
         //{

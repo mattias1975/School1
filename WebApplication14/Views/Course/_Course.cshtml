@@ -18,7 +18,7 @@
             Delete
         </button>
 
-        <button class="btn btn-primary" onclick="window.location.href='/Course/Details/id?'">Details</button>
+        <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info btn-sm m-1">Details</a>
    
 
     </div>

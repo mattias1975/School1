@@ -1,17 +1,21 @@
 ﻿body {
     background-color: #808080;
+    
+}
+text{
+    color:aliceblue
 }
 
 h1 {
-    color: #ffd800;
+    color: aliceblue;
 }
 
 h2 {
-    color: #00ff90;
+    color: aliceblue;
 }
 
 h3 {
-    color: seagreen;
+    color: aliceblue;
 }
 img {
     display: block;

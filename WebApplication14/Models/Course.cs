@@ -22,6 +22,7 @@ namespace School.Models
         public int Id { get; set; }
         public string CourseName { get; set; }
         public string Assigment { get; set; }
+        public Teacher Teacher { get; set; }
     }
 }
 

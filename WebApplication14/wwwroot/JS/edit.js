@@ -134,5 +134,3 @@ function DeleteCourse(html_id, edit_url) {
     });
 }
 
-
-

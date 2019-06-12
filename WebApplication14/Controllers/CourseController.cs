@@ -34,6 +34,16 @@ namespace School.Controllers
             }
             return PartialView("_Course", Course);
         }
+        //public IActionResult Teacher(int id)
+        //{
+        //    Teacher teacher = _teacherService.FindById(id);
+        //    if (teacher == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return PartialView("_Teacher", teacher);
+        //}
+
         [HttpGet]
         public IActionResult Edit(int? Id)
         {
@@ -111,19 +121,22 @@ namespace School.Controllers
 
         public IActionResult AddTeacherToCourse(int id)
         {
-
-
-            return View();
+            Teacher teacher = _teacherService.FindById(id);
+            if (teacher == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_Teacher", teacher);
         }
         public IActionResult Details(int id)
         {
 
-            Course Course = _courseService.FindById(id);
+            Course Course = _courseService.CourseDetails(id);
             if (Course == null)
             {
                 return NotFound();
             }
-    
+
             return View(Course);
         }
 

@@ -13,5 +13,6 @@ namespace School.Models
         bool Delete(int ID);
         bool Update(Course course);
         Course FindById(object ID);
+        Course CourseDetails(int ID);
     }
 }

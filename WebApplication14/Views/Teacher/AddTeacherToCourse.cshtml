@@ -1,0 +1,19 @@
+﻿@model List<Teacher>
+@{
+    ViewData["Title"] = "AddTeacherToCourse";
+}
+
+<h1>AddTeacherToCourse</h1>
+@foreach (var item in Model)
+{
+    <div class="row" id="@("Teacher" + item.Id)">
+        <div class="col-3"><input id="@("Name" + item.Id)" type="text" name="Name" value="@item.Name" /></div>
+        <div class="col-3"><input id="@("Email" + item.Id)" type="email" name="Email" value="@item.Email" /></div>
+        <div class="col-3"><input id="@("Id" + item.Id)" type="text" name="Id" value="@item.Id" /></div>
+        }
+        <button class="btn btn-success btn-sm"
+                onclick="SaveTeacherToCourse('@("Teacher" + item.Id)','@(item.Id)','@Url.Action("ConfirmEdit", "Teacher")')">
+            Save
+        </button>
+    </div>
+}
