@@ -4,30 +4,33 @@
 }
 <h1>Course Details</h1>
 
-    <div class="row">
-            <div class="col-3">@Model.CourseName</div>
-            <div class="col-3">@Model.Assigment</div>
+<div class="row">
+    <div class="col-3">@Model.CourseName</div>
+    <div class="col-3">@Model.Assigment</div>
+</div>
+@if (Model.Teacher != null)
+{
+    <h2>Teacher in </h2>
+
+    <div class="col-12" id="Teacherlist">
+        @foreach (var item in Model.Teacher.Name)
+        {
+
+        <partial name="_Teacher" model="item" />
+        }
     </div>
-<h2>Teacher</h2>
+}
+else
+{
+    <h2>Inget värde</h2>
 
-    @{ if (Model.Teacher != null)
-        {
-
-
-            <div class="col-3">@Model.Teacher.Name</div>
-            <div class="col-3">@Model.Teacher.Email</div>
+}
 
 
-            <a asp-controller="Course" asp-action="AddTeacherToCourse" asp-route-id="@Model.Id" class="btn btn-info btn-sm m-1">Change Teacher</a>
-        }
-
-        else
-        {
-            <div class="-3"><h3>No Teachear in this Course yet</h3></div>
-        }
-      
-    }
-
- 
 
 
+@*<div class="col-3">Empty</div>
+    <div class="row" id="@("Course" + Model.Teacher)">
+        <div class="col-3">
+            <div class="col-3"><input id="@("Teacher" +Model.Teacher.Id)" type="text" name="teacher" value="@Model.Teacher.Name" /></div>
+        </div>  </div>*@
