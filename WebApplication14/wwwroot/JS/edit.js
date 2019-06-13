@@ -54,8 +54,8 @@ function EditTeacher(html_id, edit_url) {
 function SaveEditTeacher(html_id, teacher_id, edit_url) {
     var teacher = {
         Id: teacher_id,
-        name: $('#Name' + teacher_id).val(),
-        email: $('#Email' + teacher_id).val()
+        name: $('#name' + teacher_id).val(),
+        email: $('#email' + teacher_id).val()
     }
     $.post(edit_url,
         {

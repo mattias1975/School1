@@ -13,7 +13,7 @@ namespace School.Models
             Id = this.Id;
             CourseName = this.CourseName;
             Assigment = this.Assigment;
-
+            
 
 
         }

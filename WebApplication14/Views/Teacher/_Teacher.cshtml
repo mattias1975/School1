@@ -5,7 +5,8 @@
 
     <div class="col-3">@Model.Name</div>
     <div class="col-3">@Model.Email</div>
-    <div class="col-3">
+  
+    <div>
         <button class="btn btn-success btn-sm m-1"
                 onclick="EditTeacher('@("Teacher" + Model.Id)','@Url.Action("Edit","Teacher",new { id = Model.Id })')">
             Edit

@@ -14,5 +14,6 @@ namespace School.Models
         bool Update(Course course);
         Course FindById(object ID);
         Course CourseDetails(int ID);
+        //int FindById(object id);
     }
 }

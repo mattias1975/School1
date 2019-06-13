@@ -1,20 +1,12 @@
 ﻿@model Teacher
 
 <div class="row" id="@("Teacher" + Model.Id)">
-
-    <div class="col-3">@Model.Name</div>
-    <div class="col-3">@Model.Email</div>
+    <div class="col-3"><input id="@("name" +Model.Id)" type="text" name="name" value="@Model.Name" /></div>
+    <div class="col-3"><input id="@("email" + Model.Id)" type="text" name="Assigment" value="@Model.Email" /></div>
     <div class="col-3">
-        <button class="btn btn-success btn-sm m-1"
-                onclick="EditTeacher('@("Teacher" + Model.Id)','@Url.Action("Edit","Teacher",new { id = Model.Id })')">
-            Edit
-        </button>
-
-        <button class="btn btn-danger btn-sm m-1"
-                onclick="DeleteTeacher('@("Teacher" + Model.Id)','@Url.Action("Delete","Teacher",new { id = Model.Id })')">
-            Delete
+        <button class="btn btn-success btn-sm"
+                onclick="SaveEditTeacher('@("Teacher" + Model.Id)','@(Model.Id)','@Url.Action("ConfirmEdit","Teacher")')">
+            Save
         </button>
     </div>
 </div>
-
-

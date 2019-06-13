@@ -119,15 +119,7 @@ namespace School.Controllers
             return Content("");
         }
 
-        public IActionResult AddTeacherToCourse(int id)
-        {
-            Teacher teacher = _teacherService.FindById(id);
-            if (teacher == null)
-            {
-                return NotFound();
-            }
-            return PartialView("_Teacher", teacher);
-        }
+        
         public IActionResult Details(int id)
         {
 
@@ -138,6 +130,15 @@ namespace School.Controllers
             }
 
             return View(Course);
+        }
+        public IActionResult AddTeacherToCourse(int id)
+        {
+            Teacher teacher = _teacherService.FindById(id);
+            if (teacher == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_Teacher", teacher);
         }
 
 

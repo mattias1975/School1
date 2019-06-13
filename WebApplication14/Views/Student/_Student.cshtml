@@ -10,11 +10,11 @@
                 onclick="EditStudent('@("Student" + Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')">
             Edit
         </button>
-        
-            <button class="btn btn-danger btn-sm m-1"
-                    onclick="DeleteStudent('@("Student" + Model.Id)','@Url.Action("Delete","Student",new { id = Model.Id })')">
-                Delete
-            </button>
+
+        <button class="btn btn-danger btn-sm m-1"
+                onclick="DeleteStudent('@("Student" + Model.Id)','@Url.Action("Delete","Student",new { id = Model.Id })')">
+            Delete
+        </button>
 
 
     </div>
