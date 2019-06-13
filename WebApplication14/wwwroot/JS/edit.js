@@ -133,4 +133,3 @@ function DeleteCourse(html_id, edit_url) {
         $('#' + html_id).replaceWith(data);
     });
 }
-

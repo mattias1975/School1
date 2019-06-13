@@ -12,12 +12,12 @@ namespace School.Controllers
     public class CourseController : Controller
     {
         ICourseService _courseService;
+        ITeacherService _teacherService;
 
-        //public object ID { get; private set; }
-
-        public CourseController(ICourseService courseService)
+        public CourseController(ICourseService courseService, ITeacherService teacherService)
         {
             _courseService = courseService;
+            _teacherService = teacherService;
         }
 
         public IActionResult Index()
@@ -34,15 +34,15 @@ namespace School.Controllers
             }
             return PartialView("_Course", Course);
         }
-        //public IActionResult Teacher(int id)
-        //{
-        //    Teacher teacher = _teacherService.FindById(id);
-        //    if (teacher == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return PartialView("_Teacher", teacher);
-        //}
+        public IActionResult Teacher(int id)
+        {
+            Teacher teacher = _teacherService.FindById(id);
+            if (teacher == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_Teacher", teacher);
+        }
 
         [HttpGet]
         public IActionResult Edit(int? Id)
