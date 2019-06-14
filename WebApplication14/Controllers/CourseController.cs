@@ -25,6 +25,7 @@ namespace School.Controllers
             return View(_courseService.GetCourses());
         }
 
+
         public IActionResult Course(int id)
         {
             Course Course = _courseService.FindById(id);
@@ -119,7 +120,7 @@ namespace School.Controllers
             return Content("");
         }
 
-        
+
         public IActionResult Details(int id)
         {
 
@@ -133,14 +134,29 @@ namespace School.Controllers
         }
         public IActionResult AddTeacherToCourse(int id)
         {
-            Teacher teacher = _teacherService.FindById(id);
+            Course course = _courseService.CourseDetails(id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            List<Teacher> teacher = _teacherService.GetTeachers();
+            
             if (teacher == null)
             {
                 return NotFound();
             }
-            return PartialView("_Teacher", teacher);
+
+            TeacherSclass vm = new TeacherSclass();
+
+            vm.Course = course;
+            vm.Teachers = teacher;
+
+            return View(vm);
+
         }
 
-
     }
+
+
 }

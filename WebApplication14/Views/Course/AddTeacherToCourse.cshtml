@@ -1,14 +1,18 @@
-﻿@model  List<Teacher>
+﻿@model  TeacherSclass
+
 @{
     ViewData["Title"] = "AddTeacherToCourse";
 }
+@Model.Course.CourseName
 
 <h1>AddTeacherToCourse</h1>
 
 <div class="col-12" id="teacherlist">
-    @foreach (var item in Model) 
+    @foreach (var item in Model.Teachers) 
     {
-        <partial name="_Teacher" model="item" />
+      @*<h2>  @item.Name</h2>
+        <br />*@
+    <partial name="_AddTeacher" model="item" />
 
     }
 

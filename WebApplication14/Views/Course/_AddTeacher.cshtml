@@ -5,17 +5,13 @@
 
     <div class="col-3">@Model.Name</div>
     <div class="col-3">@Model.Email</div>
-  
+
     <div>
         <button class="btn btn-success btn-sm m-1"
                 onclick="EditTeacher('@("Teacher" + Model.Id)','@Url.Action("Edit","Teacher",new { id = Model.Id })')">
-            Edit
+            Add Teacher to Course
         </button>
 
-        <button class="btn btn-danger btn-sm m-1"
-                onclick="DeleteTeacher('@("Teacher" + Model.Id)','@Url.Action("Delete","Teacher",new { id = Model.Id })')">
-            Delete
-        </button>
+
     </div>
 </div>
- 
