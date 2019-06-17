@@ -160,7 +160,8 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult AddTeacherToCourse(int cId, int tId)
         {
-            _courseService.Update(Teacher);
+
+            _courseService.Update(Course);
 
             return View("_course", Course);
 
