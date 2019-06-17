@@ -1,14 +1,17 @@
-﻿@model Teacher
+﻿@model  Teacher
 
 
 <div class="row" id="@("Teacher" + Model.Id)">
 
     <div class="col-3">@Model.Name</div>
-    <div class="col-3">@Model.Email</div>
+
+    @*<div class="col-3">@Model.Email</div>*@
+
+
 
     <div>
         <button class="btn btn-success btn-sm m-1"
-                onclick="EditTeacher('@("Teacher" + Model.Id)','@Url.Action("Edit","Teacher",new { id = Model.Id })')">
+                onclick="AddTheacherToCourse('@("Course" + Model.Id)','@Model.Course.Id','@Model.Teachers.i','@Url.Action("AddTeacherToCourse","Course",new { id = Model.Id })')">
             Add Teacher to Course
         </button>
 

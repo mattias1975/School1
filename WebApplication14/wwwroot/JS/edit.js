@@ -57,6 +57,7 @@ function SaveEditTeacher(html_id, teacher_id, edit_url) {
         name: $('#name' + teacher_id).val(),
         email: $('#email' + teacher_id).val()
     }
+    
     $.post(edit_url,
         {
             teacher: teacher
@@ -78,11 +79,33 @@ function CreateItem(create_url) {
             $("#teacherlist").append(data);
         });
 
-
-
-    // inject respone Student in list "id:studentlist"
-
 }
+
+// inject respone Student in list "id:studentlist"
+
+
+function AddTheacherToCourse(html_id, Course_id, Teacher_Id, edit_url) {
+    var course = {
+        Id: Course_id,
+        TId: Teacher_Id,
+       
+        teacher: $('#teacher' + Teacher_Id).val(),
+        
+    }
+    alert(Teacher_Id);
+   
+    $.post(edit_url,
+        {
+            teacher: course
+              
+        }
+        
+        , function (data, status) {
+            $('#' + html_id).replaceWith(data);
+        });
+   
+}
+
 function DeleteTeacher(html_id, edit_url) {
 
 
@@ -110,6 +133,27 @@ function SaveEditCourse(html_id, course_id, edit_url) {
         }
         , function (data, status) {
             $('#' + html_id).replaceWith(data);
+        });
+};
+function EditTeacher(html_id, edit_url) {
+    $.get(edit_url, function (data, status) {
+        $('#' + html_id).replaceWith(data);
+    });
+}
+function SaveEditTheacher(html_id, course_id, edit_url) {
+    var course = {
+        Id: Course_id,
+        TeacherId: $('#Teacher' + course_id).val(),
+
+    }
+    $.post(edit_url,
+        {
+            course: course
+        }
+        , function (data, status) {
+
+            $("#Courselist").append(data);
+
         });
 };
 

@@ -132,6 +132,7 @@ namespace School.Controllers
 
             return View(Course);
         }
+        //Get
         public IActionResult AddTeacherToCourse(int id)
         {
             Course course = _courseService.CourseDetails(id);
@@ -141,7 +142,7 @@ namespace School.Controllers
             }
 
             List<Teacher> teacher = _teacherService.GetTeachers();
-            
+
             if (teacher == null)
             {
                 return NotFound();
@@ -155,8 +156,21 @@ namespace School.Controllers
             return View(vm);
 
         }
+        //Post
+        [HttpPost]
+        public IActionResult AddTeacherToCourse(int cId, int tId)
+        {
+            _courseService.Update(Teacher);
 
+            return View("_course", Course);
+
+
+        
+
+
+        }
     }
-
-
 }
+
+
+    
