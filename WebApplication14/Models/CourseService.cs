@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using School.Models;
 using System;
 using System.Collections.Generic;
@@ -17,12 +18,10 @@ namespace School.Models
             _dBContextSchool = dBContextSchool;
         }
 
-        //static List<Course> course;
-
         public List<Course> GetCourses()
         {
-
-            return _dBContextSchool.Course.ToList();
+           
+            return _dBContextSchool.Course.Include(course => course.Teacher).ToList();
 
         }
         public Course Create(Course course)
@@ -47,7 +46,7 @@ namespace School.Models
 
         public Course FindById(int id)
         {
-            return _dBContextSchool.Course.SingleOrDefault(p => p.Id == id);
+            return _dBContextSchool.Course.Include(c => c.Teacher).SingleOrDefault(p => p.Id == id);
         }
         public Course CourseDetails(int id)
         {
@@ -56,35 +55,23 @@ namespace School.Models
                 .SingleOrDefault(p => p.Id == id);
         }
 
-        //public List<Course> GetCourses()
-        //{
-        //    return course;
-        //}
-
 
         public bool Update(Course course)
         {
-            Course Orginal = _dBContextSchool.Course.SingleOrDefault(p => p.Id == course.Id);
+            Course Orginal = _dBContextSchool.Course.Include(c => c.Teacher).SingleOrDefault(p => p.Id == course.Id);
             if (Orginal == null)
             {
                 return false;
             }
             Orginal.CourseName = course.CourseName;
             Orginal.Assigment = course.Assigment;
-            Orginal.Id= course.Id;
-
+            Orginal.Id = course.Id;
+            Orginal.Teacher = course.Teacher;
+            _dBContextSchool.SaveChanges();
             return true;
         }
 
-        public Student FindById(object iD)
-        {
-            throw new NotImplementedException();
-        }
 
-        Course ICourseService.FindById(object iD)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

@@ -85,21 +85,13 @@ function CreateItem(create_url) {
 
 
 function AddTheacherToCourse(html_id, Course_id, Teacher_Id, edit_url) {
-    var course = {
-        Id: Course_id,
-        TId: Teacher_Id,
-       
-        teacher: $('#teacher' + Teacher_Id).val(),
-        
-    }
-    alert(Teacher_Id);
-   
+
     $.post(edit_url,
         {
-            teacher: course
-              
+            cId: Course_id,
+            tId: Teacher_Id
         }
-        
+       
         , function (data, status) {
             $('#' + html_id).replaceWith(data);
         });

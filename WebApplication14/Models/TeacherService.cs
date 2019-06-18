@@ -1,4 +1,5 @@
-﻿using School.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using School.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,11 +52,6 @@ namespace School.Models
         }
 
 
-        //public List<Teacher> GetTeacher()
-        //{
-        //    return teacher;
-        //}
-
         public List<Teacher> GetTeachers()
         {
             return _dBContextSchool.Teacher.ToList();
@@ -69,11 +65,12 @@ namespace School.Models
             {
                 return false;
             }
-            Orginal.Email = teacher.Name;
+            Orginal.Name= teacher.Name;
             Orginal.Email = teacher.Email;
-
+            _dBContextSchool.SaveChanges();
             return true;
         }
+
     }
 }
 

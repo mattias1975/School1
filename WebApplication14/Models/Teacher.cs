@@ -21,6 +21,6 @@ namespace School.Models
             Id = id;
            
         }
-  //public Student AssignedTo { get; set; }
+
     }
 }

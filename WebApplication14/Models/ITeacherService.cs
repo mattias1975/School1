@@ -13,6 +13,6 @@ namespace School.Models
         List<Teacher> GetTeachers();
         bool Delete(int Id);
         bool Update(Teacher teacher);
-        bool Update(Func<int, IActionResult> teacher);
+        
     }
 }

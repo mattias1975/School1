@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace School.Models
 {
@@ -12,8 +13,6 @@ namespace School.Models
         List<Course> GetCourses();
         bool Delete(int ID);
         bool Update(Course course);
-        Course FindById(object ID);
-        Course CourseDetails(int ID);
-        //int FindById(object id);
+
     }
 }

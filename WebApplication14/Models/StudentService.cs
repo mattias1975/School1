@@ -72,7 +72,7 @@ namespace School.Models
             }
             Orginal.Name = student.Name;
             Orginal.Email = student.Email;
-
+            _dBContextSchool.SaveChanges();
             return true;
         }
 

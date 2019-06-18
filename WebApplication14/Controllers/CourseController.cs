@@ -124,7 +124,7 @@ namespace School.Controllers
         public IActionResult Details(int id)
         {
 
-            Course Course = _courseService.CourseDetails(id);
+            Course Course = _courseService.FindById(id);
             if (Course == null)
             {
                 return NotFound();
@@ -135,7 +135,7 @@ namespace School.Controllers
         //Get
         public IActionResult AddTeacherToCourse(int id)
         {
-            Course course = _courseService.CourseDetails(id);
+            Course course = _courseService.FindById(id);
             if (course == null)
             {
                 return NotFound();
@@ -156,22 +156,37 @@ namespace School.Controllers
             return View(vm);
 
         }
+
         //Post
         [HttpPost]
         public IActionResult AddTeacherToCourse(int cId, int tId)
+
         {
+            Course course = _courseService.FindById(cId);
 
-            _courseService.Update(Course);
+            if (course == null)
+            {
+                return BadRequest();
+            }
 
-            return View("_course", Course);
+            Teacher teacher = _teacherService.FindById(tId);
 
+            if (teacher == null)
+            {
+                return BadRequest();
+            }
 
-        
+            course.Teacher = teacher;
+            _courseService.Update(course);
+
+            return PartialView(course.Teacher.Name);
+
 
 
         }
+
     }
 }
 
 
-    
+
