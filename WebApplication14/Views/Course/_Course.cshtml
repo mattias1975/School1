@@ -4,11 +4,13 @@
 <div class="row" ID="@("Course" + Model.Id)">
 
 
-    <div class="col-3">@Model.CourseName</div>
-    <div class="col-3">@Model.Assigment</div>
-    @*<div class="col-3">@Model.Teacher</div>*@
+    <div class="col-3" style="background-color:#ff6a00">@Model.CourseName </div>
 
-    <div class="col-3">
+    <div class="col-3" style="background-color:#ff6a00" t>@Model.Assigment</div>
+
+
+    <div class="col-3" style="background-color:#0094ff">
+
         <button class="btn btn-success btn-sm m-1"
                 onclick="EditCourse('@("Course" + Model.Id)','@Url.Action("Edit","Course",new { id = Model.Id })')">
             Edit
@@ -19,10 +21,10 @@
             Delete
         </button>
 
-        <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info btn-sm m-1">Details</a>
-   
+        <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark btn-sm m-1">Details</a>
+
 
     </div>
-
+  
     <br>
 </div>

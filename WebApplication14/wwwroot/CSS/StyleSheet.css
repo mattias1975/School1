@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: #808080;
+    background-color: #0034ff;
     
 }
 text{
@@ -7,15 +7,16 @@ text{
 }
 
 h1 {
-    color: aliceblue;
+    color: #000000;
 }
 
 h2 {
-    color: aliceblue;
+    color: #00d0ff;
+    
 }
 
 h3 {
-    color: aliceblue;
+    color: #4cff00;
 }
 img {
     display: block;
