@@ -179,7 +179,7 @@ namespace School.Controllers
             course.Teacher = teacher;
             _courseService.Update(course);
 
-            return PartialView(course.Teacher.Name);
+            return Json(course.Teacher.Name);
 
 
 
