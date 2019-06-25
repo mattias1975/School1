@@ -4,7 +4,9 @@
     ViewData["Title"] = "AddTeacherToCourse";
 }
 @Model.Course.CourseName
-@*@Model.Course.Teacher*@
+@Model.Course.Assigment
+@Model.Course.Teacher.Name
+
 
 <h1>AddTeacherToCourse</h1>
 
@@ -16,14 +18,14 @@
         @*<partial name="_AddTeacher" model="item" />*@
         <div class="row" id="@("Teacher" + item.Id)">
 
-            <div class="col-3">@item.Name</div>
+            <div class="col-3">@item</div>
 
             <div>
                 <button class="btn btn-success btn-sm m-1"
                         onclick="AddTheacherToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddTeacherToCourse","Course",new { cId = Model.Course.Id, tId = item.Id })')">
                     Add Teacher to Course
                 </button>
-
+               
 
             </div>
         </div>

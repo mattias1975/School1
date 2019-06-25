@@ -4,18 +4,22 @@
 }
 
 <h2>Add a Course</h2>
-<div class="col-12">
-    <div class="row" >
-        <div class="col-3"  ><input type="text" id="CourseName" placeholder="Course Name" class="bg-white text-dark" required /></div>
-        <div class="col-3"><input type="text" id="Assigment" placeholder="Assigment" class="bg-white text-dark" required /></div>
-        <button class="btn btn-success btn-sm" onclick="CreateCourse('@Url.Action("Create","Course")')">Add Course</button>
+<<div class="col-12">
+
+
+    <div class="row">
+        <div class="col-4"><input type="text" id="CourseName" placeholder="Course Name" class="bg-white text-dark" required /></div>
+        <div class="col-4"><input type="text" id="Assigment" placeholder="Assigment" class="bg-white text-dark" required /></div>
+        <div class="col-4"><button class="btn btn-success btn-sm" onclick="CreateCourse('@Url.Action("Create","Course")')">Add Course</button></div>
+
     </div>
 </div>
-<div class="col-12" id="Courselist">
-    @foreach (var item in Model)
-    {
-        <partial name="_Course" model="item" />
-    }
-</div>
-
+ <div class="col-12" id="Courselist">
+     <div class="col-12">
+         @foreach (var item in Model)
+         {
+             <partial name="_Course" model="item" />
+         }
+     </div>
+ </div>
 

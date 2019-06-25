@@ -2,29 +2,30 @@
 
 
 <div class="row" ID="@("Course" + Model.Id)">
+    <div class="col-12">
 
 
-    <div class="col-3" style="background-color:#ff6a00">@Model.CourseName </div>
+        <div class="row">
 
-    <div class="col-3" style="background-color:#ff6a00" t>@Model.Assigment</div>
+            <div class="col-4" style="background-color:#ff6a00">@Model.CourseName </div>
 
-
-    <div class="col-3" style="background-color:#0094ff">
-
-        <button class="btn btn-success btn-sm m-1"
-                onclick="EditCourse('@("Course" + Model.Id)','@Url.Action("Edit","Course",new { id = Model.Id })')">
-            Edit
-        </button>
-
-        <button class="btn btn-danger btn-sm m-1"
-                onclick="DeleteCourse('@("Course" + Model.Id)','@Url.Action("Delete","Course",new { id = Model.Id })')">
-            Delete
-        </button>
-
-        <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark btn-sm m-1">Details</a>
+            <div class="col-4" style="background-color:#ff6a00" t>@Model.Assigment</div>
 
 
-    </div>
-  
-    <br>
-</div>
+            <div class="col-4" style="background-color:#0094ff">
+
+                <button class="btn btn-success btn-sm m-1"
+                        onclick="EditCourse('@("Course" + Model.Id)','@Url.Action("Edit","Course",new { id = Model.Id })')">
+                    Edit
+                </button>
+
+                <button class="btn btn-danger btn-sm m-1"
+                        onclick="DeleteCourse('@("Course" + Model.Id)','@Url.Action("Delete","Course",new { id = Model.Id })')">
+                    Delete
+                </button>
+
+                <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark btn-sm m-1">Details</a>
+
+                </div>
+            </div>
+     
