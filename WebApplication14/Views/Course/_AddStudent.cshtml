@@ -1,4 +1,4 @@
-﻿@model  Teacher
+﻿@model  Student
 
 
 <div class="row" id="@("Teacher" + Model.Id)" >
@@ -11,8 +11,8 @@
 
     <div>
         <button class="btn btn-success btn-sm m-1"
-                onclick="AddTheacherToCourse('@("Course" + Model.Id)','@Model.Id','@Model.Id','@Url.Action("AddTeacherToCourse","Course",new { id = Model.Id })')">
-            Add Teacher to Course
+                onclick="AddTheacherToCourse('@("Course" + Model.Id)','@Model.Id','@Model.Id','@Url.Action("AddStudentToCourse","Course",new { id = Model.Id })')">
+            Add Student to Course
         </button>
 
 

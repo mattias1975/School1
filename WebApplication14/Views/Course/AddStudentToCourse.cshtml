@@ -1,0 +1,44 @@
+﻿@model TeacherSclass
+
+@{
+    ViewData["Title"] = "AddStudentToCourse";
+}
+
+<div>
+    <div style="background-color:antiquewhite">
+        <div>
+
+            @Model.Student
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<h1>Add Student To Course</h1>
+
+<div class="col-12" id="studentlist">
+    @foreach (var item in Model.Student)
+    {
+
+        <br />
+        
+        <div class="row" id="@("Student" + item.Id)">
+
+            <div class="col-3">@item.Name</div>
+
+            <div>
+                <button class="btn btn-success btn-sm m-1"
+                        onclick="AddStudentToCourse('@("Student" + Model.Student)','@Model.Student','@item.Id','@Url.Action("AddStudentToCourse","Course",new { cId = Model.Student, sId = item.Id })')">
+                    Add new Student
+                </button>
+
+
+            </div>
+        </div>
+
+    }
+
+</div>

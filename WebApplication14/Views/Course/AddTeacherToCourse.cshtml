@@ -5,17 +5,20 @@
 }
 
 <div>
-    <div>
-        @Model.Course.CourseName
+    <div style="background-color:antiquewhite">
+        <div>
 
-    </div>
-    <div id="teacher">
-        @Model.Course.Teacher.Name
+            @Model.Course.CourseName
 
-    </div>
-    <div>
-        @Model.Course.Assigment
+        </div>
+        <div id="teacher">
+            @Model.Course.Teacher.Name
 
+        </div>
+        <div>
+            @Model.Course.Assigment
+
+        </div>
     </div>
 </div>
 
@@ -37,7 +40,7 @@
             <div>
                 <button class="btn btn-success btn-sm m-1"
                         onclick="AddTheacherToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddTeacherToCourse","Course",new { cId = Model.Course.Id, tId = item.Id })')">
-                    Add new teacher 
+                    Add new teacher
                 </button>
 
 
@@ -47,3 +50,5 @@
     }
 
 </div>
+
+
