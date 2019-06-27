@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace School.Models
 {
-    public class course
+    public class Course
     {
-        public course(int Id, string CourseName, string Assigment)
+        public Course(int Id, string CourseName, string Assigment)
         {
             Id = this.Id;
             CourseName = this.CourseName;
@@ -17,13 +17,13 @@ namespace School.Models
 
 
         }
-        public course() { }
+        public Course() { }
         //public ICollection<Student> Student { get; set; }
         public int Id { get; set; }
         public string CourseName { get; set; }
         public string Assigment { get; set; }
         public Teacher Teacher { get; set; }
-        public Student student { get; set; }
+        public Student Student { get; set; }
     }
 }
 

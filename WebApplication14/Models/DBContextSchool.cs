@@ -14,7 +14,7 @@ namespace School.Models
 
         public DbSet<Student> Student { get; set; }
         public DbSet<Teacher> Teacher { get; set; }
-        public DbSet<course> Course { get; set; }
+        public DbSet<Course> Course { get; set; }
     }
 }
     

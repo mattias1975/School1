@@ -13,11 +13,13 @@ namespace School.Controllers
     {
         ICourseService _courseService;
         ITeacherService _teacherService;
+        IStudentService _studentService;
 
-        public CourseController(ICourseService courseService, ITeacherService teacherService)
+        public CourseController(ICourseService courseService, ITeacherService teacherService, IStudentService studentService)
         {
             _courseService = courseService;
             _teacherService = teacherService;
+            _studentService = studentService;
         }
 
         public IActionResult Index()
@@ -28,7 +30,7 @@ namespace School.Controllers
 
         public IActionResult Course(int id)
         {
-            course Course = _courseService.FindById(id);
+            Course Course = _courseService.FindById(id);
             if (Course == null)
             {
                 return NotFound();
@@ -52,7 +54,7 @@ namespace School.Controllers
             {
                 return NotFound();
             }
-            course course = _courseService.FindById((int)Id);
+            Course course = _courseService.FindById((int)Id);
             if (course == null)
             {
                 return NotFound();
@@ -60,7 +62,7 @@ namespace School.Controllers
             return PartialView("_Edit", course);
         }
         [HttpPost]
-        public IActionResult ConfirmEdit(course course)
+        public IActionResult ConfirmEdit(Course course)
         {
             if (course == null)
             {
@@ -76,7 +78,7 @@ namespace School.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Create(course course)
+        public IActionResult Create(Course course)
         {
 
 
@@ -86,7 +88,7 @@ namespace School.Controllers
         }
 
         [HttpPost]
-        public IActionResult ConfirmCreate(course course)
+        public IActionResult ConfirmCreate(Course course)
         {
             if (course == null)
             {
@@ -106,7 +108,7 @@ namespace School.Controllers
         public IActionResult Delete(int Id)
         {
 
-            course course = _courseService.FindById((int)Id);
+            Course course = _courseService.FindById((int)Id);
 
 
             if (course == null)
@@ -124,7 +126,7 @@ namespace School.Controllers
         public IActionResult Details(int id)
         {
 
-            course Course = _courseService.FindById(id);
+            Course Course = _courseService.FindById(id);
             if (Course == null)
             {
                 return NotFound();
@@ -135,7 +137,7 @@ namespace School.Controllers
         //Get
         public IActionResult AddTeacherToCourse(int id)
         {
-            course course = _courseService.FindById(id);
+            Course course = _courseService.FindById(id);
             if (course == null)
             {
                 return NotFound();
@@ -162,7 +164,7 @@ namespace School.Controllers
         public IActionResult AddTeacherToCourse(int cId, int tId)
 
         {
-            course course = _courseService.FindById(cId);
+            Course course = _courseService.FindById(cId);
 
             if (course == null)
             {
@@ -189,20 +191,22 @@ namespace School.Controllers
         public IActionResult AddStudentToCourse(int id)
         {
             {
-                course course = _courseService.FindById(id);
+                Course course = _courseService.FindById(id);
                 if (course == null)
                 {
                     return NotFound();
                 }
 
-                List<Student> students = _courseService.GetStudents();
+                List<Student> students = _studentService.GetStudents();
 
                 if (students == null)
                 {
                     return NotFound();
                 }
+                TeacherSclass vm = new TeacherSclass();
 
-
+                vm.Course = course;
+                vm.Student = students;
 
                 return View(vm);
 

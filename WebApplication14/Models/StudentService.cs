@@ -24,6 +24,7 @@ namespace School.Models
         {
 
             _dBContextSchool.Student.ToList();
+        
 
         }
         public Student Create(Student student)

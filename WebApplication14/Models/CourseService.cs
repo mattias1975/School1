@@ -18,18 +18,22 @@ namespace School.Models
             _dBContextSchool = dBContextSchool;
         }
 
-        public List<course> GetCourses()
+        public List<Course> GetCourses()
         {
-           
-            return _dBContextSchool.Course.Include(course => course.Teacher).ToList();
+
+            return _dBContextSchool.Course.ToList();
 
         }
+
+
+
         public List<Student> GetStudents()
         {
 
-            return _dBContextSchool.Course.Include(course => course.student).ToList();
+            return _dBContextSchool.Student.ToList();
+
         }
-        public course Create(course course)
+        public Course Create(Course course)
         {
 
 
@@ -41,7 +45,7 @@ namespace School.Models
 
         public bool Delete(int id)
         {
-            course course = _dBContextSchool.Course.SingleOrDefault(p => p.Id == id);
+            Course course = _dBContextSchool.Course.SingleOrDefault(p => p.Id == id);
 
             _dBContextSchool.Course.Remove(course);
             _dBContextSchool.SaveChanges();
@@ -49,11 +53,11 @@ namespace School.Models
             return true;
         }
 
-        public course FindById(int id)
+        public Course FindById(int id)
         {
             return _dBContextSchool.Course.Include(c => c.Teacher).SingleOrDefault(p => p.Id == id);
         }
-        public course CourseDetails(int id)
+        public Course CourseDetails(int id)
         {
             return _dBContextSchool.Course
                 .Include(x => x.Teacher)
@@ -61,9 +65,9 @@ namespace School.Models
         }
 
 
-        public bool Update(course course)
+        public bool Update(Course course)
         {
-            course Orginal = _dBContextSchool.Course.Include(c => c.Teacher).SingleOrDefault(p => p.Id == course.Id);
+            Course Orginal = _dBContextSchool.Course.Include(c => c.Teacher).SingleOrDefault(p => p.Id == course.Id);
             if (Orginal == null)
             {
                 return false;

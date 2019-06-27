@@ -10,7 +10,7 @@ namespace School.Models
     public class TeacherSclass
 
     {
-        public course Course { get; set; }
+        public Course Course { get; set; }
         public List<Teacher> Teachers { get; set; }
         public List<Student> Student { get; set; }
     }
