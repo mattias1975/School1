@@ -12,7 +12,11 @@
 
         </div>
         <div id="teacher">
-            @Model.Course.Teacher.Name
+            @if(Model.Course.Teacher != null)
+            {
+                @Model.Course.Teacher.Name
+
+            }
 
         </div>
         <div>
