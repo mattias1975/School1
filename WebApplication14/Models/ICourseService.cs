@@ -8,11 +8,12 @@ namespace School.Models
 {
     public interface ICourseService
     {
-        Course Create(Course course);
-        Course FindById(int ID);
-        List<Course> GetCourses();
+        course Create(course course);
+        course FindById(int ID);
+        List<course> GetCourses();
+        List<Student> GetStudents();
         bool Delete(int ID);
-        bool Update(Course course);
+        bool Update(course course);
 
     }
 }

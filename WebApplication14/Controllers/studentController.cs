@@ -39,7 +39,7 @@ namespace School.Controllers
             {
                 return NotFound();
             }
-            Student student = _studentService.FindById((int) id);
+            Student student = _studentService.FindById((int)id);
             if (student == null)
             {
                 return NotFound();
@@ -104,16 +104,20 @@ namespace School.Controllers
             Student student = _studentService.FindById((int)id);
             //Student student = _studentService.FirstOrDefault(p => p.Id == id);
 
-            if (student== null)
+            if (student == null)
             {
                 return Content("");
             }
 
             _studentService.Delete(id);//bara för spara
-            
+
 
             return Content("");
         }
+
+
+
+
 
 
         //public IActionResult Sort(string sort)
@@ -128,8 +132,14 @@ namespace School.Controllers
         //        .ToList());
 
         //}
-
-
-
+        
+        }
     }
-}
+
+
+
+        
+   
+    
+
+    

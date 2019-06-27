@@ -28,7 +28,7 @@ namespace School.Controllers
 
         public IActionResult Course(int id)
         {
-            Course Course = _courseService.FindById(id);
+            course Course = _courseService.FindById(id);
             if (Course == null)
             {
                 return NotFound();
@@ -52,7 +52,7 @@ namespace School.Controllers
             {
                 return NotFound();
             }
-            Course course = _courseService.FindById((int)Id);
+            course course = _courseService.FindById((int)Id);
             if (course == null)
             {
                 return NotFound();
@@ -60,7 +60,7 @@ namespace School.Controllers
             return PartialView("_Edit", course);
         }
         [HttpPost]
-        public IActionResult ConfirmEdit(Course course)
+        public IActionResult ConfirmEdit(course course)
         {
             if (course == null)
             {
@@ -76,7 +76,7 @@ namespace School.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Create(Course course)
+        public IActionResult Create(course course)
         {
 
 
@@ -86,7 +86,7 @@ namespace School.Controllers
         }
 
         [HttpPost]
-        public IActionResult ConfirmCreate(Course course)
+        public IActionResult ConfirmCreate(course course)
         {
             if (course == null)
             {
@@ -106,7 +106,7 @@ namespace School.Controllers
         public IActionResult Delete(int Id)
         {
 
-            Course course = _courseService.FindById((int)Id);
+            course course = _courseService.FindById((int)Id);
 
 
             if (course == null)
@@ -124,7 +124,7 @@ namespace School.Controllers
         public IActionResult Details(int id)
         {
 
-            Course Course = _courseService.FindById(id);
+            course Course = _courseService.FindById(id);
             if (Course == null)
             {
                 return NotFound();
@@ -135,7 +135,7 @@ namespace School.Controllers
         //Get
         public IActionResult AddTeacherToCourse(int id)
         {
-            Course course = _courseService.FindById(id);
+            course course = _courseService.FindById(id);
             if (course == null)
             {
                 return NotFound();
@@ -162,7 +162,7 @@ namespace School.Controllers
         public IActionResult AddTeacherToCourse(int cId, int tId)
 
         {
-            Course course = _courseService.FindById(cId);
+            course course = _courseService.FindById(cId);
 
             if (course == null)
             {
@@ -185,8 +185,36 @@ namespace School.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult AddStudentToCourse(int id)
+        {
+            {
+                course course = _courseService.FindById(id);
+                if (course == null)
+                {
+                    return NotFound();
+                }
+
+                List<Student> students = _courseService.GetStudents();
+
+                if (students == null)
+                {
+                    return NotFound();
+                }
+
+
+
+                return View(vm);
+
+            }
+
+
+        }
     }
 }
+
+
+
 
 
 
