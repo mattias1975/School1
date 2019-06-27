@@ -107,76 +107,81 @@ function AddStudentToCourse(html_id, course_id, Student_Id, Edit_url) {
         , function (data, status) {
 
             $('#student').text(data);
-    });
+        });
+}
 
 function DeleteTeacher(html_id, edit_url) {
 
 
-    $.get(edit_url, function (data, status) {
-        $('#' + html_id).replaceWith(data);
-    });
-}
-
-//Course
-
-function EditCourse(html_id, edit_url) {
-    $.get(edit_url, function (data, status) {
-        $('#' + html_id).replaceWith(data);
-    });
-}
-function SaveEditCourse(html_id, course_id, edit_url) {
-    var course = {
-        Id: course_id,
-        CourseName: $('#CourseName' + course_id).val(),
-        Assigment: $('#Assigment' + course_id).val()
-    }
-    $.post(edit_url,
-        {
-            course: course
-        }
-        , function (data, status) {
+        $.get(edit_url, function (data, status) {
             $('#' + html_id).replaceWith(data);
         });
-};
-function EditTeacher(html_id, edit_url) {
-    $.get(edit_url, function (data, status) {
-        $('#' + html_id).replaceWith(data);
-    });
-}
-function SaveEditTheacher(html_id, course_id, edit_url) {
-    var course = {
-        Id: Course_id,
-        TeacherId: $('#Teacher' + course_id).val(),
+    }
+
+    //Course
+
+    function EditCourse(html_id, edit_url) {
+        $.get(edit_url, function (data, status) {
+            $('#' + html_id).replaceWith(data);
+        });
+    }
+
+    function SaveEditCourse(html_id, course_id, edit_url) {
+        var course = {
+            Id: course_id,
+            CourseName: $('#CourseName' + course_id).val(),
+            Assigment: $('#Assigment' + course_id).val()
+        }
+        $.post(edit_url,
+            {
+                course: course
+            }
+            , function (data, status) {
+                $('#' + html_id).replaceWith(data);
+            });
+    };
+
+    function EditTeacher(html_id, edit_url) {
+        $.get(edit_url, function (data, status) {
+            $('#' + html_id).replaceWith(data);
+        });
+    }
+
+    function SaveEditTheacher(html_id, course_id, edit_url) {
+        var course = {
+            Id: Course_id,
+            TeacherId: $('#Teacher' + course_id).val(),
+
+        }
+        $.post(edit_url,
+            {
+                course: course
+            }
+            , function (data, status) {
+
+                $("#Courselist").append(data);
+
+            });
+    };
+
+    function CreateCourse(create_url) {
+
+        $.post(create_url,
+            {
+                CourseName: $('#CourseName').val(),
+                Assigment: $('#Assigment').val()
+            }
+            , function (data, status) {
+
+                $("#Courselist").append(data);
+            });
 
     }
-    $.post(edit_url,
-        {
-            course: course
-        }
-        , function (data, status) {
 
-            $("#Courselist").append(data);
+    function DeleteCourse(html_id, edit_url) {
 
+
+        $.get(edit_url, function (data, status) {
+            $('#' + html_id).replaceWith(data);
         });
-};
-
-function CreateCourse(create_url) {
-
-    $.post(create_url,
-        {
-            CourseName: $('#CourseName').val(),
-            Assigment: $('#Assigment').val()
-        }
-        , function (data, status) {
-
-            $("#Courselist").append(data);
-        });
-
-}
-function DeleteCourse(html_id, edit_url) {
-
-
-    $.get(edit_url, function (data, status) {
-        $('#' + html_id).replaceWith(data);
-    });
-}
+    }
