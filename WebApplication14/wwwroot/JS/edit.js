@@ -98,14 +98,14 @@ function AddTheacherToCourse(html_id, Course_id, Teacher_Id, edit_url) {
    
 }
 
-function AddStudentToCourse(html_id, course_id, Student_Id, Edit_url) {
+function AddStudentToCourse(html_id, Course_id, Student_Id, edit_url) {
     $.post(edit_url,
         {
-            cId: Course_id,
-            sId: Student_Id
+            coId: Course_id,
+            SoId: Student_Id
         }
         , function (data, status) {
-
+            alert(data);
             $('#student').text(data);
         });
 }

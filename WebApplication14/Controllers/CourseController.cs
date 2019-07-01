@@ -211,14 +211,43 @@ namespace School.Controllers
                 return View(vm);
 
             }
+        }
+        
+        [HttpPost]
+        public IActionResult AddStudentToCourse(int coId, int SoId)
+
+        {
+            Course course = _courseService.FindById(coId);
+
+            if (course == null)
+            {
+                return BadRequest();
+            }
+
+            Student Student = _studentService.FindById(SoId);
+               
+
+            if (Student == null)
+            {
+                return BadRequest();
+            }
+
+            course.Student = Student;
+            _courseService.Update(course);
+            
+
+            return Json(course.Student);
+
 
 
         }
 
-
-
     }
+
+
+
 }
+
 
 
 
