@@ -7,11 +7,10 @@ using Microsoft.AspNetCore;
 namespace School.Models
 {
 
-    public class TeacherSclass
+    public class StudentSclass
 
     {
         public Course Course { get; set; }
-        public List<Teacher> Teachers { get; set; }
         public List<Student> Students { get; set; }
     }
 }

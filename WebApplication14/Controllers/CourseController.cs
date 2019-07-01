@@ -197,16 +197,16 @@ namespace School.Controllers
                     return NotFound();
                 }
 
-                List<Student> students = _studentService.GetStudents();
+                List<Student> student = _studentService.GetStudents();
 
-                if (students == null)
+                if (student == null)
                 {
                     return NotFound();
                 }
-                TeacherSclass vm = new TeacherSclass();
+                StudentSclass vm = new StudentSclass();
 
                 vm.Course = course;
-                vm.Student = students;
+                vm.Students = student;
 
                 return View(vm);
 
@@ -214,6 +214,9 @@ namespace School.Controllers
 
 
         }
+
+
+
     }
 }
 
