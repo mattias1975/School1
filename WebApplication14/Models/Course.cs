@@ -13,7 +13,7 @@ namespace School.Models
             Id = this.Id;
             CourseName = this.CourseName;
             Assigment = this.Assigment;
-            
+
 
 
         }
@@ -23,7 +23,8 @@ namespace School.Models
         public string CourseName { get; set; }
         public string Assigment { get; set; }
         public Teacher Teacher { get; set; }
-        public Student Student { get; set; }
+        public Student student { get; set; }
+
     }
 }
 

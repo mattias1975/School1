@@ -232,11 +232,12 @@ namespace School.Controllers
                 return BadRequest();
             }
 
-            course.Student = Student;
+            course.student = Student;
+            
             _courseService.Update(course);
             
 
-            return Json(course.Student);
+            return Json(Student);
 
 
 

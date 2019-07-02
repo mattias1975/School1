@@ -76,6 +76,9 @@ namespace School.Models
             Orginal.Assigment = course.Assigment;
             Orginal.Id = course.Id;
             Orginal.Teacher = course.Teacher;
+            
+
+
             _dBContextSchool.SaveChanges();
             return true;
         }

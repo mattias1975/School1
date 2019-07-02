@@ -1,6 +1,5 @@
 ﻿@model StudentSclass
 
-
 @{
     ViewData["Title"] = "AddTeacherToCourse";
 }
@@ -14,24 +13,19 @@
         @Model.Students
         }
     </div>*@
-    <div id="student">
-        @if (Model.Course.Student != null)
+    @*<div id="student">*@
+
+
+        @if (Model.Students != null)
         {
-            @Model.Course.Student.Name
+            @Model.Students;
+
         }
-
-    </div>
-    <div>
-
-    </div>
-</div>
-
-
-
+    
 
 <h1>Add Student To Course</h1>
 
-<div class="col-12" id="teacherlist">
+<div class="col-12" id="studentlist">
     @foreach (var item in Model.Students)
     {
 
