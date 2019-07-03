@@ -18,7 +18,7 @@ namespace School.Models
 
         }
         public Course() { }
-        //public ICollection<Student> Student { get; set; }
+        public List<CourseStudent> Students { get; set; }
         public int Id { get; set; }
         public string CourseName { get; set; }
         public string Assigment { get; set; }

@@ -37,7 +37,7 @@
 
             <div>
                 <button class="btn btn-success btn-sm m-1"
-                        onclick="AddStudentToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddStudentToCourse","Course",new { coId = Model.Course.Id,  SoId = item.Id })')">
+                        onclick="AddStudentToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddStudentToCourse","CourseStudent",new { coId = Model.Course.Id,  SoId = item.Id })')">
                     Add new Student
                 </button>
 
