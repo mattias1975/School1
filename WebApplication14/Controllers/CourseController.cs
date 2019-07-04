@@ -224,20 +224,19 @@ namespace School.Controllers
                 return BadRequest();
             }
 
-            Student Student = _studentService.FindById(SoId);
+            Student student = _studentService.FindById(SoId);
                
 
-            if (Student == null)
+            if (student == null)
             {
                 return BadRequest();
             }
-
-            course.student = Student;
-            
+            course.Students.Add(new CourseStudent() { CourseId = course.Id, StudentId = student.Id });
             _courseService.Update(course);
-            
 
-            return Json(Student);
+
+
+            return Json(student);
 
 
 

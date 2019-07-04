@@ -106,7 +106,7 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
         }
         , function (data, status) {
          
-            $('#student').append(data);
+            $('#student').text(data);
         });
 }
 

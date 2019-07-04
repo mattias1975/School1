@@ -1,53 +1,84 @@
 ﻿@model StudentSclass
 
+
+@{
+    ViewData["Title"] = "CourseStudent";
+}
+
+@*<div>
+        <div style="background-color:antiquewhite">
+            <div>
+                @if (Model.Students!= null)
+                {
+                    @Model.Students
+
+                }
+
+
+            </div>
+
+
+        </div>
+    </div>*@
+
+
+
+
+<h1>Add Student To Course</h1>
+
+
 @{
     ViewData["Title"] = "AddTeacherToCourse";
 }
 
+<div>
+    <div style="background-color:antiquewhite">
+        <div>
 
-<div style="background-color:antiquewhite">
+            Students
 
-    @*<div>
+        </div>
+        <div id="teacher">
+            @if (Model.Students != null)
+            {
+                foreach (var item in Model.Students)
+                {
+                    <div>@item.Name</div>
+                }
 
-        {
-        @Model.Students
-        }
-    </div>*@
-    @*<div id="student">*@
+            }
+
+        </div>
+       
+    </div>
+</div>
 
 
-        @if (Model.Students != null)
-        {
-            @Model.Students;
 
-        }
-    
 
-<h1>Add Student To Course</h1>
+<h1>AddTeacherToCourse</h1>
 
-<div class="col-12" id="studentlist">
+<div class="col-12" id="teacherlist">
     @foreach (var item in Model.Students)
     {
 
         <br />
-        @*<partialname ="_AddTeacher" model="item" />*@
-        <div class="row" id="@("Teacher" + item.Id)">
+        @*<partial name="_AddTeacher" model="item" />*@
+        <div class="row" id="@("Student" + item.Id)">
 
             <div class="col-3">@item.Name</div>
 
             <div>
                 <button class="btn btn-success btn-sm m-1"
-                        onclick="AddStudentToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddStudentToCourse","CourseStudent",new { coId = Model.Course.Id,  SoId = item.Id })')">
-                    Add new Student
+                        onclick="AddStudentToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddStudentToCourse","Course",new { cId = Model.Course.Id, SOId = item.Id })')">
+                    Add new teacher
                 </button>
 
 
             </div>
         </div>
 
-
     }
 
 </div>
-
 

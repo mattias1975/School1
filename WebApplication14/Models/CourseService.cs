@@ -55,7 +55,11 @@ namespace School.Models
 
         public Course FindById(int id)
         {
-            return _dBContextSchool.Course.Include(c => c.Teacher).SingleOrDefault(p => p.Id == id);
+            return _dBContextSchool.Course
+                                          .Include(c => c.Teacher)
+                                          .Include(c => c.Students)
+                                            .ThenInclude(s => s.Student)
+                                          .SingleOrDefault(p => p.Id == id);
         }
         public Course CourseDetails(int id)
         {
