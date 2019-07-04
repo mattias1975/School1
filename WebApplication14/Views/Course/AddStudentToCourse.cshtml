@@ -24,7 +24,7 @@
 
 
 
-<h1>Add Student To Course</h1>
+<h1> Student´s </h1>
 
 
 @{
@@ -35,15 +35,15 @@
     <div style="background-color:antiquewhite">
         <div>
 
-            Students
+            Students in @Model.Course.CourseName
 
         </div>
-        <div id="teacher">
+        <div id="student">
             @if (Model.Students != null)
             {
-                foreach (var item in Model.Students)
+                foreach (var item in Model.Course.Students)
                 {
-                    <div>@item.Name</div>
+                    <div>@item.Student.Name</div>
                 }
 
             }
@@ -56,7 +56,7 @@
 
 
 
-<h1>AddTeacherToCourse</h1>
+<h1>Add Student To Course</h1>
 
 <div class="col-12" id="teacherlist">
     @foreach (var item in Model.Students)

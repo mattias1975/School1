@@ -105,8 +105,9 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
             SoId: Student_Id
         }
         , function (data, status) {
-         
-            $('#student').text(data);
+            console.log("data");
+            $('#student').append(data);
+            
         });
 }
 

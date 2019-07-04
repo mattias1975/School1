@@ -234,6 +234,7 @@ namespace School.Controllers
             course.Students.Add(new CourseStudent() { CourseId = course.Id, StudentId = student.Id });
             _courseService.Update(course);
 
+            student.Courses = null;
 
 
             return Json(student);

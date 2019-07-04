@@ -61,6 +61,7 @@ namespace School.Models
         public List<Student> GetStudents()
         {
             return _dBContextSchool.Student.ToList();
+            _dBContextSchool.SaveChanges();
             //return Students;
         }
 

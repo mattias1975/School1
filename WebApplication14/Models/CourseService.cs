@@ -60,6 +60,7 @@ namespace School.Models
                                           .Include(c => c.Students)
                                             .ThenInclude(s => s.Student)
                                           .SingleOrDefault(p => p.Id == id);
+
         }
         public Course CourseDetails(int id)
         {
@@ -80,7 +81,7 @@ namespace School.Models
             Orginal.Assigment = course.Assigment;
             Orginal.Id = course.Id;
             Orginal.Teacher = course.Teacher;
-            
+
 
 
             _dBContextSchool.SaveChanges();
