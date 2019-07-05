@@ -38,7 +38,7 @@
             Students in @Model.Course.CourseName
 
         </div>
-        <div id="student">
+        <div id="studentlist">
             @if (Model.Students != null)
             {
                 foreach (var item in Model.Course.Students)
@@ -58,7 +58,7 @@
 
 <h1>Add Student To Course</h1>
 
-<div class="col-12" id="teacherlist">
+<div class="col-12" id="allstudent">
     @foreach (var item in Model.Students)
     {
 
@@ -71,7 +71,7 @@
             <div>
                 <button class="btn btn-success btn-sm m-1"
                         onclick="AddStudentToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddStudentToCourse","Course",new { cId = Model.Course.Id, SOId = item.Id })')">
-                    Add new teacher
+                    Add Student
                 </button>
 
 
