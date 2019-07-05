@@ -203,6 +203,12 @@ namespace School.Controllers
                 {
                     return NotFound();
                 }
+
+                foreach(CourseStudent item in course.Students )
+                {
+                    student.Remove(item.Student);
+                }
+
                 StudentSclass vm = new StudentSclass();
 
                 vm.Course = course;
@@ -212,7 +218,7 @@ namespace School.Controllers
 
             }
         }
-        
+
         [HttpPost]
         public IActionResult AddStudentToCourse(int coId, int SoId)
 
@@ -225,16 +231,19 @@ namespace School.Controllers
             }
 
             Student student = _studentService.FindById(SoId);
-               
+
 
             if (student == null)
             {
                 return BadRequest();
             }
+
             course.Students.Add(new CourseStudent() { CourseId = course.Id, StudentId = student.Id });
             _courseService.Update(course);
 
             student.Courses = null;
+
+
 
 
             return Json(student);
