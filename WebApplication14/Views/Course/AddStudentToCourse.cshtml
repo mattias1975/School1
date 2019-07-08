@@ -22,7 +22,7 @@
         {
             foreach (var item in Model.Course.Students)
             {
-                <div namr>@item.Student.Name<button class="btn-sm btn-danger" onclick="DeleteStudentFromCourse('@( item.Student.Name)','@Url.Action("Delete","Student",new { id = Model.Course.Id })')">Delete</button>  </div>
+                @*<div namr>@item.Student.Name<button class="btn-sm btn-danger" onclick="DeleteStudentFromCourse('@( item.Student.Name)','@Url.Action("Delete","Student",new { id = Model.Course.Id })')">Delete</button>  </div>*@
             }
 
 

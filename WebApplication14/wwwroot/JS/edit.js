@@ -108,7 +108,7 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
         , function (data, status) {
             
             const studentNameDiv = document.createElement('div');
-            studentNameDiv.innerHTML = data.name 
+            studentNameDiv.innerHTML = data.name + '<button>Nisse</button>'
             
       
             $('#studentlist').append(studentNameDiv);
