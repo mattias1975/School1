@@ -108,11 +108,22 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
         , function (data, status) {
             
             const studentNameDiv = document.createElement('div');
-            studentNameDiv.innerHTML = data.name;
+            studentNameDiv.innerHTML = data.name 
+            
+      
             $('#studentlist').append(studentNameDiv);
             
         });
 }
+function DeleteStudentFromCourse(html_id, edit_url) {
+
+
+    $.post(edit_url, function (data, status) {
+        $('#' + html_id).replaceWith(data);
+    
+    });
+}
+
 
 function DeleteTeacher(html_id, edit_url) {
 

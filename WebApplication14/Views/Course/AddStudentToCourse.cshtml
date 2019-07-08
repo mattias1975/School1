@@ -11,25 +11,26 @@
 }
 
 <div style="background-color:burlywood">
-    <div >
-        <div  >
+   <div class="row"  id="@("Student" + Model.Course.Id)" >
+    <div>
 
-            <h1>Students in @Model.Course.CourseName</h1> 
+        <h1>Students in @Model.Course.CourseName</h1>
 
-        </div>
-        <div id="studentlist" >
-            @if (Model.Students != null)
+    </div>
+    <div id="studentlist">
+        @if (Model.Students != null)
+        {
+            foreach (var item in Model.Course.Students)
             {
-                foreach (var item in Model.Course.Students)
-                {
-                    <div>@item.Student.Name <button class="btn btn-danger btn-sm m-1">Delete</button> </div>
-                }
-
+                <div namr>@item.Student.Name<button class="btn-sm btn-danger" onclick="DeleteStudentFromCourse('@( item.Student.Name)','@Url.Action("Delete","Student",new { id = Model.Course.Id })')">Delete</button>  </div>
             }
 
-        </div>
-       
+
+        }
+
     </div>
+
+</div>
 </div>
 
 
