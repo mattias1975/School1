@@ -12,10 +12,13 @@ namespace School.Controllers
     public class StudentController : Controller
     {
         IStudentService _studentService;
+        ICourseService _courseService;
+        ICourseService courseService;
 
         public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
+            _courseService = courseService;
         }
 
         public IActionResult Index()
@@ -106,13 +109,29 @@ namespace School.Controllers
 
             if (student == null)
             {
-                return Content("");
+                return BadRequest();
             }
 
             _studentService.Delete(id);//bara för spara
 
 
-            return Content("");
+            return Ok();
+        }
+        public IActionResult DeleteStudentFromCourse(int id)
+        {
+
+            Course student = _courseService.FindById((int)id);
+            //Student student = _studentService.FirstOrDefault(p => p.Id == id);
+
+            if (student == null)
+            {
+                return BadRequest();
+            }
+
+            _courseService.Delete(student.Id);//bara för spara
+
+
+            return Ok();
         }
 
 
@@ -120,26 +139,13 @@ namespace School.Controllers
 
 
 
-        //public IActionResult Sort(string sort)
-        //{
-        //    if (string.IsNullOrWhiteSpace(sort))//if null or space return View index _studentservice
-        //    {
-        //        return View("Index", _studentService.GetStudents());
-        //    }
 
-        //    return View("Index", _studentService.GetStudents()
-        //  .Where(p => p.Name.ToLower().Contains(sort) || p.Course.ToLower().Contains(sort))
-        //        .ToList());
-
-        //}
-        
-        }
     }
+}
 
 
 
-        
-   
-    
 
-    
+
+
+

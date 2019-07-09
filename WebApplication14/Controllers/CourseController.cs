@@ -214,6 +214,9 @@ namespace School.Controllers
                 vm.Course = course;
                 vm.Students = student;
 
+
+     
+
                 return View(vm);
 
             }
@@ -245,7 +248,7 @@ namespace School.Controllers
 
 
 
-
+    
             return Json(student);
 
 

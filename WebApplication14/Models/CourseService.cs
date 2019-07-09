@@ -20,6 +20,7 @@ namespace School.Models
 
         public List<Course> GetCourses()
         {
+            _dBContextSchool.SaveChanges();
 
             return _dBContextSchool.Course.ToList();
 
@@ -52,6 +53,17 @@ namespace School.Models
 
             return true;
         }
+        public bool DeleteStudentFromCourse(int id)
+     
+        {
+            Course student = _dBContextSchool.Course.SingleOrDefault(p => p.Id == id);
+
+            _dBContextSchool.Course.Remove(student);
+            _dBContextSchool.SaveChanges();
+
+            return true;
+        }
+
 
         public Course FindById(int id)
         {
@@ -88,7 +100,7 @@ namespace School.Models
             return true;
         }
 
-
+      
     }
 }
 
