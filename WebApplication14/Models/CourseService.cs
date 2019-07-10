@@ -53,12 +53,12 @@ namespace School.Models
 
             return true;
         }
-        public bool DeleteStudentFromCourse(int id)
+        public bool DeleteStudentFromCourse(int course_Id, int student_Id)
      
         {
-            Course student = _dBContextSchool.Course.SingleOrDefault(p => p.Id == id);
+            var courseStudent = _dBContextSchool.CourseStudent.Select(p => p.CourseId == course_Id && p.StudentId == student_Id);
 
-            _dBContextSchool.Course.Remove(student);
+            _dBContextSchool.CourseStudent.RemoveRange(courseStudent);
             _dBContextSchool.SaveChanges();
 
             return true;
@@ -100,7 +100,10 @@ namespace School.Models
             return true;
         }
 
-      
+        public void Delete(Course student)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

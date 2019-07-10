@@ -117,31 +117,11 @@ namespace School.Controllers
 
             return Ok();
         }
-        public IActionResult DeleteStudentFromCourse(int id)
-        {
-
-            Course student = _courseService.FindById((int)id);
-            //Student student = _studentService.FirstOrDefault(p => p.Id == id);
-
-            if (student == null)
-            {
-                return BadRequest();
-            }
-
-            _courseService.Delete(student.Id);//bara för spara
-
-
-            return Ok();
+        
         }
 
+        }
 
-
-
-
-
-
-    }
-}
 
 
 

@@ -121,7 +121,7 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
 function DeleteStudentFromCourse(student_Id, edit_url) {
 
 
-    $.post(edit_url, function (data, status) {
+    $.get(edit_url,function (data, status) {
         $('#' + student_Id).replaceWith(data);
  
       

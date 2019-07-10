@@ -13,5 +13,7 @@ namespace School.Models
         List<Course> GetCourses();
         bool Delete(int Id);
         bool Update(Course course);
+        void Delete(Course student);
+        bool DeleteStudentFromCourse(int course_Id, int student_Id);
     }
 }

@@ -204,7 +204,7 @@ namespace School.Controllers
                     return NotFound();
                 }
 
-                foreach(CourseStudent item in course.Students )
+                foreach (CourseStudent item in course.Students)
                 {
                     student.Remove(item.Student);
                 }
@@ -215,7 +215,7 @@ namespace School.Controllers
                 vm.Students = student;
 
 
-     
+
 
                 return View(vm);
 
@@ -248,18 +248,37 @@ namespace School.Controllers
 
 
 
-    
+
             return Json(student);
 
 
 
         }
 
+        [HttpPost]
+        public IActionResult DeleteStudentFromCourse(int id, int student_id)
+        {
+
+            Course course = _courseService.FindById(id);
+            //Student student = _studentService.FirstOrDefault(p => p.Id == id);
+
+            if (course == null || student_id == null)
+            {
+                return BadRequest();
+            }
+
+            _courseService.DeleteStudentFromCourse(id,student_id);//bara för spara
+
+
+            return Ok();
+
+
+
+        }
     }
-
-
-
 }
+
+
 
 
 
