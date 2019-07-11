@@ -11,6 +11,6 @@ namespace School.Models
         public Course Course { get; set; }
 
         public int StudentId { get; set; }
-        public Student Student { get; set; }
+        public Student student { get; set; }
     }
 }

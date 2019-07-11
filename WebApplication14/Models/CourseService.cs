@@ -56,9 +56,17 @@ namespace School.Models
         public bool DeleteStudentFromCourse(int course_Id, int student_Id)
      
         {
-            var courseStudent = _dBContextSchool.CourseStudent.Select(p => p.CourseId == course_Id && p.StudentId == student_Id);
+            var courseStudent = _dBContextSchool.CourseStudent.ToList();
 
-            _dBContextSchool.CourseStudent.RemoveRange(courseStudent);
+            foreach (var item in courseStudent)
+            {
+                if (item.StudentId == student_Id && item.CourseId == course_Id)
+                {
+                    _dBContextSchool.CourseStudent.Remove(item);
+                }
+            }
+
+             
             _dBContextSchool.SaveChanges();
 
             return true;
@@ -70,7 +78,7 @@ namespace School.Models
             return _dBContextSchool.Course
                                           .Include(c => c.Teacher)
                                           .Include(c => c.Students)
-                                            .ThenInclude(s => s.Student)
+                                            .ThenInclude(s => s.student)
                                           .SingleOrDefault(p => p.Id == id);
 
         }

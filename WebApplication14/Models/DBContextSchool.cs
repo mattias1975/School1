@@ -28,7 +28,7 @@ namespace School.Models
                 .HasForeignKey(c => c.CourseId);
 
             modelBuilder.Entity<CourseStudent>()
-                .HasOne(c => c.Student)
+                .HasOne(c => c.student)
                 .WithMany(c => c.Courses)
                 .HasForeignKey(c => c.StudentId);
         }

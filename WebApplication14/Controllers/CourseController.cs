@@ -206,7 +206,7 @@ namespace School.Controllers
 
                 foreach (CourseStudent item in course.Students)
                 {
-                    student.Remove(item.Student);
+                    student.Remove(item.student);
                 }
 
                 StudentSclass vm = new StudentSclass();
@@ -249,7 +249,7 @@ namespace School.Controllers
 
 
 
-            return Json(student);
+            return Json(course);
 
 
 
@@ -268,7 +268,7 @@ namespace School.Controllers
             }
 
             _courseService.DeleteStudentFromCourse(id,student_id);//bara för spara
-
+            
 
             return Ok();
 
