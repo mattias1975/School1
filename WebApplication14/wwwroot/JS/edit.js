@@ -101,21 +101,21 @@ function AddTheacherToCourse(html_id, Course_id, Teacher_Id, edit_url) {
 function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
     $.post(edit_url,
         {
-            coId: CourseStudent_id,
+           
+   coId: CourseStudent_id,
             SoId: Student_Id
-        }
+
+         
+       
 
         , function (data, status) {
 
+            console.log("retur svar data: " + data);
 
-            const studentNameDiv = document.createElement('div');
+            $('#Student' + Student_Id).replaceWith();
+      
 
-            studentNameDiv.innerHTML = data.name + " " + '<button class="btn btn-danger btn-sm" >Delete</button>'
-
-
-            $('#studentlist').append(studentNameDiv);
-
-
+        }
         });
 }
 function DeleteStudentFromCourse(student_Id, edit_url) {

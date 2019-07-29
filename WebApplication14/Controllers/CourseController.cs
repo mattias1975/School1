@@ -240,16 +240,13 @@ namespace School.Controllers
             {
                 return BadRequest();
             }
-
-            course.Students.Add(new CourseStudent() { CourseId = course.Id, StudentId = student.Id });
+            CourseStudent courseStudent = new CourseStudent() { CourseId = course.Id, StudentId = student.Id };
+            course.Students.Add(courseStudent);
             _courseService.Update(course);
 
             student.Courses = null;
 
-
-
-
-            return Json(course);
+            return PartialView("_AddStudentCourseRow", courseStudent);
 
 
 

@@ -10,22 +10,28 @@
     ViewData["Title"] = "AddTeacherToCourse";
 }
 
-<div style="background-color:burlywood">
-   <div class="row"  id="@("Student" + Model.Course.Id)" >
-    <div>
+<div style="background-color:#ff6a00">
 
-        <h1>Students in @Model.Course.CourseName</h1>
+   <div  id="@("Student" + Model.Course.Id)" >
+    
 
-    </div>
+        <h1>Students in @Model.Course.CourseName<br /></h1>
+
+
+       
     <div id="studentlist">
         @if (Model.Students != null)
         {
+        
             foreach (var item in Model.Course.Students)
             {
-             <div id="@item.student.Id" >@item.student.Name<button class="btn-sm btn-danger" onclick="DeleteStudentFromCourse('@( item.student.Id)','@Url.Action("DeleteStudentFromCourse","Course",new { id = Model.Course.Id })')">Delete</button>  </div>
+  
+                <div id="@item.student.Id">@item.student.Name<button class="btn-sm btn-danger" onclick="DeleteStudentFromCourse('@( item.student.Id)','@Url.Action("DeleteStudentFromCourse","Course",new { id = Model.Course.Id })')">Delete</button>  </div>
 
-
+ 
             }
+       
+      
 
 
         }
@@ -35,29 +41,29 @@
 </div>
 </div>
 
-
+<br />
 
 
 <h1>Add Student To Course</h1>
 
 <div class="col-12" id="allStudent">
-  
+    <br />
     @foreach (var item in Model.Students)
     {
         
 
-        <br />
-        @*<partial name="_AddTeacher" model="item" />*@
+  
+
         <div class="row" id="@("Student" + item.Id)">
 
-            <div class="col-3">@item.Name</div>
+            <div class="col-4">@item.Name</div>
 
             <div>
                 <button class="btn btn-success btn-sm m-1"
                         onclick="AddStudentToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddStudentToCourse","Course",new { cId = Model.Course.Id, SOId = item.Id })')">
                     Add new student
                 </button>
-
+                <br />
 
             </div>
         </div>
