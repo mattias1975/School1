@@ -6,7 +6,7 @@
     <div class="col-3" style="background-color:antiquewhite">@Model.Name</div>
 
     <div class="col-4">
-        @Model.Email
+      MY/  @Model.Email
 
         <button class="btn btn-success btn-sm m-1"
                 onclick="AddStudentToCourse('@("CourseStudent" + Model.Id)','@Model.Id','@Model.Id','@Url.Action("AddStudentToCourse","CourseStudent",new { id = Model.Id })')">

@@ -110,11 +110,13 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
 
         , function (data, status) {
 
-            console.log("retur svar data: " + data);
+            console.log("retur svar : " + Student_Id);
 
-            $('#Student' + Student_Id).replaceWith();
-      
+            console.log(CourseStudent_id);
+            $('#Student' + Student_Id).replaceWith('');
 
+
+            
         }
         });
 }

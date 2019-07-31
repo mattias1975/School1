@@ -12,6 +12,7 @@ namespace School.Models
     {
         public Course Course { get; set; }
         public List<Student> Students { get; set; }
+        public Student  student    { get; set; }
     }
 }
 

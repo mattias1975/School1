@@ -7,38 +7,38 @@
 
 
 @{
-    ViewData["Title"] = "AddTeacherToCourse";
+    ViewData["Title"] = "AddStudentToCourse";
 }
 
 <div style="background-color:#ff6a00">
 
-   <div  id="@("Student" + Model.Course.Id)" >
-    
+    <div id="@("Student" + Model.Course.Id)">
+
 
         <h1>Students in @Model.Course.CourseName<br /></h1>
 
 
-       
-    <div id="studentlist">
-        @if (Model.Students != null)
-        {
-        
-            foreach (var item in Model.Course.Students)
+
+        <div id="studentlist">
+            @if (Model.Students != null)
             {
-  
-                <div id="@item.student.Id">@item.student.Name<button class="btn-sm btn-danger" onclick="DeleteStudentFromCourse('@( item.student.Id)','@Url.Action("DeleteStudentFromCourse","Course",new { id = Model.Course.Id })')">Delete</button>  </div>
 
- 
+                foreach (var item in Model.Course.Students)
+                {
+
+                    <div id="@item.student.Id">@item.student.Name<button class="btn-sm btn-danger" onclick="DeleteStudentFromCourse('@( item.student.Id)','@Url.Action("DeleteStudentFromCourse","Course",new { id = Model.student.Id})')">Delete</button>  </div>
+
+
+                }
+
+
+
+
             }
-       
-      
 
-
-        }
+        </div>
 
     </div>
-
-</div>
 </div>
 
 <br />
@@ -48,27 +48,24 @@
 
 <div class="col-12" id="allStudent">
     <br />
-    @foreach (var item in Model.Students)
+    <h2>Student List</h2>
+    @if (Model.Students != null)
     {
-        
+        @foreach (var item in Model.Students)
+        {
 
-  
+            <partial name="_AddStudentCourseRow" model="new StudentSclass() { Course =  Model.Course, student = item }" />
+        }
+    }
 
-        <div class="row" id="@("Student" + item.Id)">
+    else
 
-            <div class="col-4">@item.Name</div>
+    {
+            <p>No students</p>
 
-            <div>
-                <button class="btn btn-success btn-sm m-1"
-                        onclick="AddStudentToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddStudentToCourse","Course",new { cId = Model.Course.Id, SOId = item.Id })')">
-                    Add new student
-                </button>
-                <br />
-
-            </div>
-        </div>
 
     }
+
 
 </div>
 

@@ -1,0 +1,20 @@
+﻿@model StudentSclass
+
+
+<div class="row" id="@("Student" + Model.Course.Students)">
+
+    <div class="col-3" style="background-color:gold">@Model.Course.Students</div>
+  
+    <div class="col-3" style="background-color:darkcyan">
+     
+
+        <button class="btn btn-danger btn-sm m-1"
+                onclick="DeleteStudentFromCourse('@("Student" + Model.Course.Id)','@Url.Action("Delete","Student",new { id = Model.Course.Id })')">
+            Delete
+        </button>
+
+
+    </div>
+
+
+</div>
