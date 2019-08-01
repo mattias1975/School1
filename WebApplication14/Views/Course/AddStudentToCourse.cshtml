@@ -10,62 +10,66 @@
     ViewData["Title"] = "AddStudentToCourse";
 }
 
-<div style="background-color:#ff6a00">
 
-    <div id="@("Student" + Model.Course.Id)">
-
-
-        <h1>Students in @Model.Course.CourseName<br /></h1>
+<div id="@("Student" + Model.Course.Id)">
 
 
+    <h1>Students in  @Model.Course.CourseName<br /></h1>
 
-        <div id="studentlist">
+
+   
+
+    <div id="studentlist">
+        <div align="center">
+            <h4>List of student in Course</h4>
             @if (Model.Students != null)
             {
-
-                foreach (var item in Model.Course.Students)
+                @foreach (var item in Model.Students)
                 {
 
-                    <div id="@item.student.Id">@item.student.Name<button class="btn-sm btn-danger" onclick="DeleteStudentFromCourse('@( item.student.Id)','@Url.Action("DeleteStudentFromCourse","Course",new { id = Model.student.Id})')">Delete</button>  </div>
-
-
+                    <partial name="_StudentInClass" model="new StudentSclass() { Course =  Model.Course, student = item }" />
                 }
 
+            }
+
+            else
+            {
 
 
-
+                <p>No students</p>
             }
 
         </div>
 
-    </div>
 </div>
 
-<br />
 
 
-<h1>Add Student To Course</h1>
+
+
 
 <div class="col-12" id="allStudent">
     <br />
-    <h2>Student List</h2>
-    @if (Model.Students != null)
-    {
-        @foreach (var item in Model.Students)
+
+    <div align="center">
+        <h4>Add Student</h4>
+        @if (Model.Students != null)
         {
+            @foreach (var item in Model.Students)
+            {
 
-            <partial name="_AddStudentCourseRow" model="new StudentSclass() { Course =  Model.Course, student = item }" />
+                <partial name="_AddStudentCourseRow" model="new StudentSclass() { Course =  Model.Course, student = item }" />
+            }
         }
-    }
 
-    else
+        else
 
-    {
+        {
             <p>No students</p>
 
 
-    }
-
+        }
+    </div>
 
 </div>
 

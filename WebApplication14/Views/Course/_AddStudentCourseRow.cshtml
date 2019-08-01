@@ -2,14 +2,14 @@
 
 
 <div class="col-3" style="background-color:antiquewhite">
-    <div class="col-4">      @Model.student.Name</div>
+    <div class="col-4" align="center">      @Model.student.Name</div>
 
 
   
 
         <button class="btn btn-success btn-sm m-1"
                 onclick="AddStudentToCourse('@("CourseStudent" + Model.Course.Id)','@Model.Course.Id','@Model.student.Id','@Url.Action("AddStudentToCourse","CourseStudent",new { id = Model.Course.Id })')">
-            Add Student to Course
+            Add Student to Course 
         </button>
     </div>
 
