@@ -1,11 +1,5 @@
 ﻿@model StudentSclass
 
-
-@{
-    ViewData["Title"] = "CourseStudent";
-}
-
-
 @{
     ViewData["Title"] = "AddStudentToCourse";
 }
@@ -16,18 +10,15 @@
 
     <h1>Students in  @Model.Course.CourseName<br /></h1>
 
-
-   
-
     <div id="studentlist">
         <div align="center">
-            <h4>List of student in Course</h4>
+          
             @if (Model.Students != null)
             {
-                @foreach (var item in Model.Students)
+                @foreach (var item in Model.Course.Students)
                 {
 
-                    <partial name="_StudentInClass" model="new StudentSclass() { Course =  Model.Course, student = item }" />
+                    <partial name="_StudentInClass" model="item" />
                 }
 
             }
@@ -41,35 +32,35 @@
 
         </div>
 
-</div>
 
 
 
 
 
 
-<div class="col-12" id="allStudent">
-    <br />
 
-    <div align="center">
-        <h4>Add Student</h4>
+       
+    <hr />
+
+    <div id="allStudents">
+        <h1>Students avalible</h1>
         @if (Model.Students != null)
         {
             @foreach (var item in Model.Students)
             {
 
-                <partial name="_AddStudentCourseRow" model="new StudentSclass() { Course =  Model.Course, student = item }" />
+                <partial name="_AddStudentCourseRow" model="new StudentSclass() { Course = Model.Course, student = item }" />
             }
+
         }
 
         else
-
         {
+
+
             <p>No students</p>
-
-
         }
+
     </div>
 
 </div>
-

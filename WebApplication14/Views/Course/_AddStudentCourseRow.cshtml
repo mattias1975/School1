@@ -1,17 +1,15 @@
 ﻿@model StudentSclass
 
 
-<div class="col-3" style="background-color:antiquewhite">
-    <div class="col-4" align="center">      @Model.student.Name</div>
+<div class="row" id="@("Student" + Model.student.Id)">
 
+    <div class="col-3">@Model.student.Name</div>
 
-  
-
+    <div>
         <button class="btn btn-success btn-sm m-1"
-                onclick="AddStudentToCourse('@("CourseStudent" + Model.Course.Id)','@Model.Course.Id','@Model.student.Id','@Url.Action("AddStudentToCourse","CourseStudent",new { id = Model.Course.Id })')">
-            Add Student to Course 
+                onclick="AddStudentToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@Model.student.Id','@Url.Action("AddStudentToCourse", "Course", new { cId = Model.Course.Id, tId = Model.student.Id })')">
+            Add new Student
         </button>
+
     </div>
-
-
-
+</div>

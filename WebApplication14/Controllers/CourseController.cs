@@ -253,21 +253,21 @@ namespace School.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteStudentFromCourse(int id, int student_id)
+        public IActionResult DeleteStudentFromCourse(int course_id, int student_id)
         {
 
-            Course course = _courseService.FindById(id);
-            //Student student = _studentService.FirstOrDefault(p => p.Id == id);
-
-            if (course == null || student_id == null)
+            Course course = _courseService.FindById(course_id);
+            Student student = _studentService.FindById(student_id);
+            if (course == null || student == null)
             {
                 return BadRequest();
             }
 
-            _courseService.DeleteStudentFromCourse(id,student_id);//bara för spara
+            _courseService.DeleteStudentFromCourse(course_id, student_id);//bara för spara
+
             
 
-            return Ok();
+          return PartialView("__AddStudentCourseRow", student);
 
 
 
