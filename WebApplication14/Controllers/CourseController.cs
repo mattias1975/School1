@@ -246,7 +246,7 @@ namespace School.Controllers
 
             student.Courses = null;
 
-            return PartialView("_AddStudentCourseRow", courseStudent);
+            return PartialView("_StudentInClass", courseStudent);
 
 
 

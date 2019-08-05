@@ -104,14 +104,14 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
 
             coId: CourseStudent_id,
             SoId: Student_Id
-                       
 
-            , function(data, status) {
-                             
-                $('#Student' + Student_Id).replaceWith('');
-                               
-            }
-        });
+        }
+        , function (data, status) {
+
+            $('#Student' + Student_Id).replaceWith('');
+            $('#studentlist').append(data);
+        }
+    );
 }
 function DeleteStudentFromCourse(Course_Id, Student_Id, edit_url) {
     $.post(edit_url,
@@ -119,11 +119,13 @@ function DeleteStudentFromCourse(Course_Id, Student_Id, edit_url) {
             course_id: Course_Id,
             student_Id: Student_Id
         }
-           ,function(data, status) {
+        , function (data, status) {
+  
 
-                $('#student' + Student_Id).replaceWith(data)
-            }
-        );
+            $('#Student' + Student_Id).replaceWith('');
+            $('#studentlist').append(data);
+        }
+    );
 }
 
 

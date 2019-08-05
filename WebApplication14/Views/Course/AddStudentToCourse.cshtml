@@ -10,27 +10,27 @@
 
     <h1>Students in  @Model.Course.CourseName<br /></h1>
 
-    <div id="studentlist">
-        <div align="center">
-          
-            @if (Model.Students != null)
-            {
-                @foreach (var item in Model.Course.Students)
-                {
+    <div id="studentlist" align="center">
 
-                    <partial name="_StudentInClass" model="item" />
-                }
 
-            }
-
-            else
+        @if (Model.Students != null)
+        {
+            @foreach (var item in Model.Course.Students)
             {
 
-
-                <p>No students</p>
+                <partial name="_StudentInClass" model="item" />
             }
 
-        </div>
+        }
+
+        else
+        {
+
+
+            <p>No students</p>
+        }
+
+    </div>
 
 
 
@@ -39,7 +39,7 @@
 
 
 
-       
+
     <hr />
 
     <div id="allStudents">
