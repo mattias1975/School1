@@ -3,10 +3,10 @@
 
 <div class="row" id="@("Teacher" + Model.Id)">
 
-    <div class="col-3" style="background-color:burlywood" >@Model.Name</div>
-    <div class="col-3" style="background-color:burlywood">@Model.Email</div>
+    <div class="col-4" style="background-color:#d1c8c1" >@Model.Name</div>
+    <div class="col-4" style="background-color:#d1c8c1">@Model.Email</div>
 
-    <div style="background-color:darkgreen">
+    <div style="background-color:#d1c8c1">
         <button class="btn btn-success btn-sm m-1" style="background-color:cadetblue"
                 onclick="EditTeacher('@("Teacher" + Model.Id)','@Url.Action("Edit","Teacher",new { id = Model.Id })')">
             Edit
