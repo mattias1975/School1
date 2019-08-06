@@ -120,10 +120,11 @@ function DeleteStudentFromCourse(Course_Id, Student_Id, edit_url) {
             student_Id: Student_Id
         }
         , function (data, status) {
-  
-
+       
             $('#Student' + Student_Id).replaceWith('');
-            $('#studentlist').append(data);
+            $('#allStudents').append(data);
+         
+
         }
     );
 }

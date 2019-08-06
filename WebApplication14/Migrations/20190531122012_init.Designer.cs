@@ -20,7 +20,7 @@ namespace School.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("School.Models.Student", b =>
+            modelBuilder.Entity("School.Models.StudentSClass", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

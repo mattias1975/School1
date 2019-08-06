@@ -265,10 +265,11 @@ namespace School.Controllers
 
             _courseService.DeleteStudentFromCourse(course_id, student_id);//bara för spara
 
-            
 
-          return PartialView("__AddStudentCourseRow", student);
 
+          return PartialView("_AddStudentCourseRow", new StudentSclass() { student = student, Course = course });
+
+           
 
 
         }
