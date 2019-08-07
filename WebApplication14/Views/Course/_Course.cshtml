@@ -21,7 +21,7 @@
                 </button>
 
                 <button class="btn btn-danger btn-sm m-1"
-                        onclick="DeleteStudentFromCourse('@("Course" + Model.Id)','@Url.Action("DeleteStudentFromCourse","Course",new { id = Model.Id })')">
+                        onclick="Delete('@("Course" + Model.Id)','@Url.Action("Delete","Course",new { id = Model.Id })')">
                     Delete
                 </button>
 

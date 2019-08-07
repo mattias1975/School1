@@ -198,7 +198,7 @@ function CreateCourse(create_url) {
 
 }
 
-function DeleteCourse(html_id, edit_url) {
+function Delete(html_id, edit_url) {
 
 
     $.get(edit_url, function (data, status) {
