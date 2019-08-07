@@ -15,9 +15,13 @@
             <Button>   @Html.ActionLink("Course", "Index", "Course")</Button>
         </h4>
     </header>
-    @RenderBody()
-    <center></center>
 
+    <div class="container">
+        @RenderBody()
+    </div>
+    
+
+    <footer><p>&copy; Mattias Gustavsson Entity framework</p></footer>
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -29,7 +33,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script src="~/JS/edit.js"></script>
-    <footer><p>&copy; Mattias Gustavsson Entity framework</p></footer>
 </body>
 
 </html>

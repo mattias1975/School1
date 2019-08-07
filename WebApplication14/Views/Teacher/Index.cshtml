@@ -4,23 +4,24 @@
 }
 
 <h2>Theacher</h2>
-<div class="col-12">
+<div class="row">
+    <div class="col-12">
 
-    <div class="row">
-        <div class="col-4"> <input type="text" id="name" name="Name" placeholder="TeacherName" /></div>
-        <div class="col-4"><input type="email"  id="email" name="Email" placeholder="TeacherEmail"/></div>
+
+        <div class="col-12"> <input type="text" id="name" name="Name" placeholder="TeacherName" /></div>
+   <input type="email" id="email" name="Email" placeholder="TeacherEmail" /></div>
 
         <div class="col-4"><button class="btn btn-success btn-sm m-1" onclick="CreateItem('@Url.Action("Create","Teacher")')">Add Teacher</button></div>
     </div>
 
-    <div class="col-12" id="teacherlist">
-        @foreach (var item in Model)
-        {
-            <partial name="_Teacher" model="item" />
-    
-        }
+    <div class="row" id="teacherlist">
 
-    </div>
+            @foreach (var item in Model)
+            {
+                <partial name="_Teacher" model="item" />
 
-</div>
+            }
+
+        </div>
+
 

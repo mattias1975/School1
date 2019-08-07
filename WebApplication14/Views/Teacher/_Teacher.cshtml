@@ -1,20 +1,25 @@
 ﻿@model Teacher
 
-
 <div class="row" id="@("Teacher" + Model.Id)">
 
-    <div class="col-4" style="background-color:#d1c8c1" >@Model.Name</div>
-    <div class="col-4" style="background-color:#d1c8c1">@Model.Email</div>
+    <div class="col-3" style="background-color:#d1c8c1">@Model.Name</div>
 
-    <div style="background-color:#d1c8c1">
-        <button class="btn btn-success btn-sm m-1" style="background-color:cadetblue"
-                onclick="EditTeacher('@("Teacher" + Model.Id)','@Url.Action("Edit","Teacher",new { id = Model.Id })')">
+    <div class="col-3" style="background-color:#d1c8c1">@Model.Email
+
+
+        <button class="btn btn-success btn-sm m-1"
+                onclick="EditStudent('@("Student" + Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')">
             Edit
         </button>
+    </div>
 
+    <div class="col-3" style="background-color:#d1c8c1">
         <button class="btn btn-danger btn-sm m-1"
-                onclick="DeleteTeacher('@("Teacher" + Model.Id)','@Url.Action("Delete","Teacher",new { id = Model.Id })')">
+                onclick="DeleteStudent('@("Student" + Model.Id)','@Url.Action("Delete","Student",new { id = Model.Id })')">
             Delete
         </button>
+
+
     </div>
+
 </div>
