@@ -3,25 +3,50 @@
     ViewData["Title"] = "Teacher";
 }
 
-<h2>Theacher</h2>
+@*<h2>Theacher</h2>
 <div class="row">
     <div class="col-12">
 
-
+        <div class="col-12">
         <div class="col-12"> <input type="text" id="name" name="Name" placeholder="TeacherName" /></div>
-   <input type="email" id="email" name="Email" placeholder="TeacherEmail" /></div>
-
-        <div class="col-4"><button class="btn btn-success btn-sm m-1" onclick="CreateItem('@Url.Action("Create","Teacher")')">Add Teacher</button></div>
+        <input type="email" id="email" name="Email" placeholder="TeacherEmail" />
     </div>
 
-    <div class="row" id="teacherlist">
+    <div class="col-4"><button class="btn btn-success btn-sm m-1" onclick="CreateItem('@Url.Action("Create","Teacher")')">Add Teacher</button></div>
+</div>
 
-            @foreach (var item in Model)
-            {
-                <partial name="_Teacher" model="item" />
+<div class="row" id="teacherlist">
 
-            }
+    @foreach (var item in Model)
+    {
+        <partial name="_Teacher" model="item" />
+
+    }
+
+</div>*@
+
+<h2>Create Teacher</h2>
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="col-12">
+            <input type="text" id="name" name="Name" placeholder="Name" required />
+            <input type="text" id="email" name="Email" class="bg-white text-dark" placeholder="Email" required />
+       <button class="btn btn-success btn-sm m-1" onclick="CreateItem('@Url.Action("Create","Teacher")')">Add Teacher</button>
+
 
         </div>
 
 
+        <div id="teacherlist">
+
+            @foreach (var item in Model)
+            {
+                <partial name="_teacher" model="item" />
+            }
+
+
+        </div>
+    </div>
+</div>

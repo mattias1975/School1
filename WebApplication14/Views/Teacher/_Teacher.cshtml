@@ -4,22 +4,20 @@
 
     <div class="col-3" style="background-color:#d1c8c1">@Model.Name</div>
 
-    <div class="col-3" style="background-color:#d1c8c1">@Model.Email
+    <div class="col-5" style="background-color:#d1c8c1">@Model.Email  </div>
 
-
+    <div class="col-2" style="background-color:#d1c8c1">
         <button class="btn btn-success btn-sm m-1"
-                onclick="EditStudent('@("Student" + Model.Id)','@Url.Action("Edit","Student",new { id = Model.Id })')">
+                onclick="EditTeacher('@("Teacher" + Model.Id)','@Url.Action("Edit","teacher",new { id = Model.Id })')">
             Edit
         </button>
     </div>
 
-    <div class="col-3" style="background-color:#d1c8c1">
+    <div class="col-2" style="background-color:#d1c8c1">
         <button class="btn btn-danger btn-sm m-1"
-                onclick="DeleteStudent('@("Student" + Model.Id)','@Url.Action("Delete","Student",new { id = Model.Id })')">
+                onclick="DeleteTeacher('@("Teacher" + Model.Id)','@Url.Action("Delete","teacher",new { id = Model.Id })')">
             Delete
         </button>
-
-
     </div>
 
 </div>
