@@ -21,6 +21,8 @@ function SaveEditStudent(html_id, student_id, edit_url) {
         });
 };
 
+
+
 function CreateStudent(create_url) {
 
     $.post(create_url,
@@ -120,10 +122,10 @@ function DeleteStudentFromCourse(Course_Id, Student_Id, edit_url) {
             student_Id: Student_Id
         }
         , function (data, status) {
-       
+
             $('#Student' + Student_Id).replaceWith('');
             $('#allStudents').append(data);
-         
+
 
         }
     );
