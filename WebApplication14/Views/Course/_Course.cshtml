@@ -13,13 +13,13 @@
                 onclick="EditCourse('@("Course" + Model.Id)','@Url.Action("Edit","Course",new { id = Model.Id })')">
             Edit
         </button>
-    </div>
-    <div class="col-3" style="background-color:#d1c8c1">
+  
+  
         <button class="btn btn-danger btn-sm m-1"
                 onclick="Delete('@("Course" + Model.Id)','@Url.Action("Delete","Course",new { id = Model.Id })')">
             Delete
         </button>
-
+        <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark btn-sm m-1">Details</a>
 
     </div>
 
