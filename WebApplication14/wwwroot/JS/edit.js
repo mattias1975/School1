@@ -145,15 +145,17 @@ function DeleteTeacher(html_id, edit_url) {
 function EditCourse(html_id, edit_url) {
     $.get(edit_url, function (data, status) {
         $('#' + html_id).replaceWith(data);
+        
     });
 }
 
 function SaveEditCourse(html_id, course_id, edit_url) {
+    console.log($('#CourseName' + course_id).val());
     var course = {
         Id: course_id,
         CourseName: $('#CourseName' + course_id).val(),
         Assigment: $('#Assigment' + course_id).val()
-    }
+    };
     $.post(edit_url,
         {
             course: course
@@ -162,6 +164,7 @@ function SaveEditCourse(html_id, course_id, edit_url) {
             $('#' + html_id).replaceWith(data);
         });
 };
+
 
 function EditTeacher(html_id, edit_url) {
     $.get(edit_url, function (data, status) {

@@ -10,7 +10,7 @@
 
     <div class="col-3" style="background-color:#d1c8c1">
         <button class="btn btn-success btn-sm m-1"
-                onclick="SaveEditCourse('@("Course" + Model.Id)','@Url.Action("Edit","Course",new { id = Model.Id })')">
+                onclick="EditCourse('@("Course" + Model.Id)','@Url.Action("Edit","Course",new { id = Model.Id })')">
             Edit
         </button>
     </div>
