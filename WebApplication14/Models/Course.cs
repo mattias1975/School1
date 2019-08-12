@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,10 +12,10 @@ namespace School.Models
         public Course(int Id, string CourseName, string Assigment)
         {
             Id = this.Id;
+      
             CourseName = this.CourseName;
+          
             Assigment = this.Assigment;
-
-
 
         }
         public Course() { }

@@ -2,24 +2,39 @@
 @{
     ViewData["Title"] = "Details";
 }
-<h1>Course Details</h1>
+<h1>Course Details for @Model.CourseName</h1>
 
-<div class="row" >
+<div class="row">
     <div class="col-3" style="background-color:#d1c8c1">@Model.CourseName</div>
-    <div class="col-3"style="background-color:#d1c8c1">@Model.Assigment</div>
+    <div class="col-3" style="background-color:#d1c8c1">@Model.Assigment</div>
+
     @if (Model.Teacher != null)
     {
 
 
 
-    <div class="col-3"style="background-color:#d1c8c1">@Model.Teacher.Name</div>
+        <div class="col-3" style="background-color:#d1c8c1">@Model.Teacher.Name</div>
 
 
-  }
+    }
+
+
+
 </div>
+<div>
+    <h2>Students</h2>
+    @foreach (var item in Model.Students)
+    {
+        <partial name="_StudentInClass" model="item" />
+    }
+    <div>
+        <partiel name="_AddStudentCourseRow" model="Item"></partiel>
+    </div>
 
-    <a asp-controller="Course" asp-action="AddTeacherToCourse" asp-route-id="@Model.Id" class="btn btn-info btn-sm m-1">change Teacher</a>
-    <a asp-controller="Course" asp-action="AddStudentToCourse" asp-route-id="@Model.Id" class="btn btn-info btn-sm m-1"> Student </a>
+
+
+<a asp-controller="Course" asp-action="AddTeacherToCourse" asp-route-id="@Model.Id" class="btn btn-info btn-sm m-1">change Teacher</a>
+<a asp-controller="Course" asp-action="AddStudentToCourse" asp-route-id="@Model.Id" class="btn btn-info btn-sm m-1"> Student </a>
 
 
 
