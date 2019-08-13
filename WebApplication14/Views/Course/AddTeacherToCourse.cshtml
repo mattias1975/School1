@@ -36,14 +36,14 @@
     {
 
         <br />
-        @*<partial name="_AddTeacher" model="item" />*@
-        <div class="row" id="@("Teacher" + item.Id)">
+     
+        <div class="row" id="Tadd" >
 
-            <div class="col-3">@item.Name</div>
+            <div id="@("CurrentTeacher" + item.Id)" class="col-3">@item.Name</div>
 
-            <div>
+            <div id="AddTeacher">
                 <button class="btn btn-success btn-sm m-1"
-                        onclick="AddTheacherToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddTeacherToCourse","Course",new { cId = Model.Course.Id, tId = item.Id })')">
+                        onclick="AddTheacherToCourse('@("Course" + Model.Course.Teacher.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddTeacherToCourse","Course",new { cId = Model.Course.Id, tId = item.Id })')">
                     Add new teacher
                 </button>
 
@@ -54,3 +54,4 @@
     }
 
 </div>
+<button class="btn btn-dark btn-sm m-1"> <a href="javascript:history.back();">Back</a></button>

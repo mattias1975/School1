@@ -4,12 +4,10 @@
     ViewData["Title"] = "AddStudentToCourse";
 }
 
-
 <div id="@("Student" + Model.Course.Id)">
 
 
     <h1>Students in  @Model.Course.CourseName<br /></h1>
-
     <div id="studentlist" align="center">
 
 
@@ -21,7 +19,7 @@
                 <partial name="_StudentInClass" model="item" />
             }
 
-           
+
         }
 
         else
@@ -30,10 +28,10 @@
 
             <p>No students</p>
         }
-            
+
     </div>
-   
-    
+
+    <button class="btn btn-dark btn-sm m-1"> <a href="javascript:history.back();">Back</a></button>
 
 
 

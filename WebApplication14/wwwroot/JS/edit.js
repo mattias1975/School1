@@ -92,10 +92,13 @@ function AddTheacherToCourse(html_id, Course_id, Teacher_Id, edit_url) {
         {
             cId: Course_id,
             tId: Teacher_Id
+
         }
 
         , function (data, status) {
-            $('#teacher').text(data);
+            $('#teacher').replaceWith(data);
+            $('#TeacherCourse').replaceWith('');
+            console.log(data)
         });
 
 }
@@ -110,8 +113,8 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
         }
         , function (data, status) {
 
-            $('#Student' + Student_Id).replaceWith('');
-            $('#studentlist').append(data);
+            $('#Studentlist' + Student_Id).replaceWith('');
+            $('#student').append(data);
         }
     );
 }
@@ -145,7 +148,7 @@ function DeleteTeacher(html_id, edit_url) {
 function EditCourse(html_id, edit_url) {
     $.get(edit_url, function (data, status) {
         $('#' + html_id).replaceWith(data);
-        
+
     });
 }
 
