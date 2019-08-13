@@ -97,7 +97,7 @@ function AddTheacherToCourse(html_id, Course_id, Teacher_Id, edit_url) {
 
         , function (data, status) {
             $('#teacher').replaceWith(data);
-            $('#TeacherCourse').replaceWith('');
+            $('#Current').replaceWith("");
             console.log(data)
         });
 
