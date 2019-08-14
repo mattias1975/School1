@@ -11,7 +11,7 @@
             @Model.Course.CourseName
 
         </div>
-        <div id="teacher">
+        <div id="CurrentTeacher">
             @if (Model.Course.Teacher != null)
             {
                 @Model.Course.Teacher.Name
@@ -37,14 +37,14 @@
 
         <br />
      
-        <div class="row" id="Current" >
+        <div class="row" id="@("Teacher" + item.Id)">
 
-            <div id="@("CurrentTeacher" + item.Id)" class="col-3">@item.Name</div>
+            <div class="col-3">@item.Name</div>
 
             <div id="AddTeacher">
                 <button class="btn btn-success btn-sm m-1"
                         onclick="AddTheacherToCourse('@("Course" + Model.Course.Teacher.Id)','@Model.Course.Id','@item.Id','@Url.Action("AddTeacherToCourse","Course",new { cId = Model.Course.Id, tId = item.Id })')">
-                    Add new teacher
+                    Select teacher
                 </button>
 
 
