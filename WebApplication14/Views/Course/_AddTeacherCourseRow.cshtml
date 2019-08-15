@@ -1,0 +1,15 @@
+﻿@model StudentSclass
+
+
+<div class="row" id="@("Student" + Model.Course.Teacher.Id)">
+
+    <div class="col-3">@Model.Course.Teacher.Name</div>
+
+    <div>
+        <button class="btn btn-success btn-sm m-1"
+                onclick="AddTeacherToCourse('@("Course" + Model.Course.Id)','@Model.Course.Id','@Model.Course.Teacher.Id','@Url.Action("AddTeacherToCourse", "Course", new { cId = Model.Course.Id, tId = Model.Course.Teacher.Id })')">
+            Add Student
+        </button>
+
+    </div>
+</div>

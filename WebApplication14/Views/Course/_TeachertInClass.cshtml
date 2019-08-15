@@ -1,0 +1,27 @@
+﻿@model CourseTeacher
+
+<div class="row" id="@("Student" + Model.teacher.Id)">
+
+    <div class="col-6" style="background-color:#d1c8c1">@Model.teacher.Name</div>
+
+
+
+    <div class="col-3" style="background-color:#d1c8c1">
+
+        <button class="btn btn-danger btn-sm m-1"
+                onclick="DeleteTeacherFromCourse('@Model.Course.Id','@Model.teacher.Id','@Url.Action("DeleteTeacherFromCourse","Course")')">
+            Delete
+        </button>
+
+
+    </div>
+
+    
+
+
+
+    </div>
+
+
+
+

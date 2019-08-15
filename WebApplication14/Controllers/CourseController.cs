@@ -154,7 +154,7 @@ namespace School.Controllers
 
             vm.Course = course;
             vm.Teachers = teacher;
-
+            _courseService.Update(course);
             return View(vm);
 
         }
@@ -180,7 +180,7 @@ namespace School.Controllers
 
             course.Teacher = teacher;
             _courseService.Update(course);
-
+      
             return Json(course.Teacher.Name);
 
 

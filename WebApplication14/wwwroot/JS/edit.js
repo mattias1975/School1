@@ -96,8 +96,9 @@ function AddTheacherToCourse(html_id, Course_id, Teacher_Id, edit_url) {
         }
 
         , function (data, status) {
-            $('#CurrentTeacher').text(data);
             $('#Teacher' + Teacher_Id).replaceWith('');
+            $('#CurrentTeacher').text(data);
+          
    
         });
 
@@ -113,8 +114,8 @@ function AddStudentToCourse(html_id, CourseStudent_id, Student_Id, edit_url) {
         }
         , function (data, status) {
 
-            $('#Studentlist' + Student_Id).replaceWith('');
-            $('#student').append(data);
+            $('#Student' + Student_Id).replaceWith('');
+            $('#studentlist').append(data);
         }
     );
 }
