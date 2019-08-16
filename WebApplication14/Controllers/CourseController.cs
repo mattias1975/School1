@@ -58,6 +58,7 @@ namespace School.Controllers
             if (course == null)
             {
                 return NotFound();
+       
             }
             return PartialView("_Edit", course);
         }
@@ -83,7 +84,7 @@ namespace School.Controllers
 
 
             _courseService.Create(course);
-
+      
             return PartialView("_Course", course);
         }
 

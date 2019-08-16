@@ -37,7 +37,7 @@ function CreateStudent(create_url) {
 
 
 
-    // inject respone Student in list "id:studentlist"
+
 
 }
 function DeleteStudent(html_id, edit_url) {
@@ -98,7 +98,7 @@ function AddTheacherToCourse(html_id, Course_id, Teacher_Id, edit_url) {
         , function (data, status) {
             $('#Teacher' + Teacher_Id).replaceWith('');
             $('#CurrentTeacher').text(data);
-            location.reload('#teacherlist');
+            location.reload(data);
    
         });
 
