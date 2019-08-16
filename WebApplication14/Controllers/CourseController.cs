@@ -164,6 +164,7 @@ namespace School.Controllers
                         vm.Teachers.Remove(item);//if last array is true remove item from list
                         break;
                     }
+                    
                 }
             }
             
@@ -176,7 +177,7 @@ namespace School.Controllers
         public IActionResult AddTeacherToCourse(int cId, int tId)
 
         {
-            Course course = _courseService.FindById(cId);// checj after course by id
+            Course course = _courseService.FindById(cId);// check after course by id
 
             if (course == null)//check if course= null
             {
