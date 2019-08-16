@@ -167,7 +167,7 @@ function SaveEditCourse(html_id, course_id, edit_url) {
         , function (data, status) {
             $('#' + html_id).replaceWith(data);
         });
-};//
+};
 
 
 function EditTeacher(html_id, edit_url) {
