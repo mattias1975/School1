@@ -154,7 +154,19 @@ namespace School.Controllers
 
             vm.Course = course;
             vm.Teachers = teacher;
-            _courseService.Update(course);
+
+            if (course.Teacher != null)//check if techer not=null
+            {
+                foreach (var item in vm.Teachers)//Check where Item in Tehachers is= Teacher
+                {
+                    if (item.Id == course.Teacher.Id)//check if Item.id is same ass course.Teacher.Id
+                    {
+                        vm.Teachers.Remove(item);//if last array is true remove item from list
+                        break;
+                    }
+                }
+            }
+            
             return View(vm);
 
         }
@@ -164,29 +176,31 @@ namespace School.Controllers
         public IActionResult AddTeacherToCourse(int cId, int tId)
 
         {
-            Course course = _courseService.FindById(cId);
+            Course course = _courseService.FindById(cId);// checj after course by id
 
-            if (course == null)
+            if (course == null)//check if course= null
             {
-                return BadRequest();
+                return BadRequest(); //if true return badrequest
             }
 
             Teacher teacher = _teacherService.FindById(tId);
 
-            if (teacher == null)
+            if (teacher == null)// same as Course but teacher
             {
                 return BadRequest();
             }
 
-            course.Teacher = teacher;
-            _courseService.Update(course);
-      
-            return Json(course.Teacher.Name);
+
+
+            course.Teacher = teacher;//course.Teacher is same as teacher
+            _courseService.Update(course);//update course
+            
+            return Json(course.Teacher.Name);//return a Json on teachers name in course
 
 
 
         }
-
+        //check commens about teacher it´s same but course
         [HttpGet]
         public IActionResult AddStudentToCourse(int id)
         {
@@ -213,15 +227,13 @@ namespace School.Controllers
 
                 vm.Course = course;
                 vm.Students = student;
-
-
-
+                _courseService.Update(course);
 
                 return View(vm);
 
             }
         }
-
+        //check commens about teacher it´s same but Student
         [HttpPost]
         public IActionResult AddStudentToCourse(int coId, int SoId)
 
@@ -267,9 +279,9 @@ namespace School.Controllers
 
 
 
-          return PartialView("_AddStudentCourseRow", new StudentSclass() { student = student, Course = course });
+            return PartialView("_AddStudentCourseRow", new StudentSclass() { student = student, Course = course });
 
-           
+
 
 
         }
